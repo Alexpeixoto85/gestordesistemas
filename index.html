@@ -1,0 +1,1590 @@
+
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Sistemas - Links de Acesso</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --accent-color: #1abc9c;
+            --light-color: #ecf0f1;
+            --dark-color: #2c3e50;
+            --danger-color: #e74c3c;
+            --warning-color: #f39c12;
+            --success-color: #27ae60;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --border-radius: 8px;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #f5f7fa;
+            color: var(--dark-color);
+            line-height: 1.6;
+            padding-bottom: 40px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            padding: 25px 0;
+            box-shadow: var(--shadow);
+            margin-bottom: 30px;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 5px;
+        }
+
+        .subtitle {
+            font-size: 1rem;
+            opacity: 0.9;
+            font-weight: 300;
+        }
+
+        .stats {
+            display: flex;
+            gap: 20px;
+            background: rgba(255, 255, 255, 0.15);
+            padding: 12px 20px;
+            border-radius: var(--border-radius);
+            backdrop-filter: blur(5px);
+        }
+
+        .stat-item {
+            text-align: center;
+        }
+
+        .stat-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            opacity: 0.9;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        .card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 25px;
+            margin-bottom: 25px;
+            transition: var(--transition);
+        }
+
+        .card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .card-title i {
+            color: var(--secondary-color);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #ddd;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            transition: var(--transition);
+        }
+
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            padding: 12px 25px;
+            border: none;
+            border-radius: var(--border-radius);
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-primary {
+            background-color: var(--secondary-color);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        .btn-success {
+            background-color: var(--success-color);
+            color: white;
+        }
+
+        .btn-success:hover {
+            background-color: #219653;
+            transform: translateY(-2px);
+        }
+
+        .btn-danger {
+            background-color: var(--danger-color);
+            color: white;
+        }
+
+        .btn-danger:hover {
+            background-color: #c0392b;
+            transform: translateY(-2px);
+        }
+
+        .btn-warning {
+            background-color: var(--warning-color);
+            color: white;
+        }
+
+        .btn-warning:hover {
+            background-color: #e67e22;
+            transform: translateY(-2px);
+        }
+
+        .btn-info {
+            background-color: #17a2b8;
+            color: white;
+        }
+
+        .btn-info:hover {
+            background-color: #138496;
+            transform: translateY(-2px);
+        }
+
+        .btn-block {
+            width: 100%;
+        }
+
+        .btn-sm {
+            padding: 8px 15px;
+            font-size: 0.9rem;
+        }
+
+        .actions {
+            display: flex;
+            gap: 10px;
+            justify-content: flex-end;
+            margin-top: 20px;
+        }
+
+        .search-container {
+            margin-bottom: 25px;
+            position: relative;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+        }
+
+        .search-container input {
+            padding-left: 45px;
+        }
+
+        .system-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 5px solid var(--secondary-color);
+            transition: var(--transition);
+        }
+
+        .system-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+        }
+
+        .system-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 15px;
+        }
+
+        .system-name {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 5px;
+        }
+
+        .system-category {
+            display: inline-block;
+            background: #e8f4fc;
+            color: var(--secondary-color);
+            padding: 4px 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 5px;
+        }
+
+        .system-description {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .system-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+        }
+
+        .system-link:hover {
+            background: #16a085;
+            transform: translateY(-2px);
+        }
+
+        .system-actions {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+
+        .empty-state {
+            text-align: center;
+            padding: 50px 20px;
+            color: #7f8c8d;
+        }
+
+        .empty-state i {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            color: #bdc3c7;
+        }
+
+        .empty-state h3 {
+            margin-bottom: 10px;
+            font-size: 1.5rem;
+        }
+
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 25px;
+        }
+
+        .category-filter button {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .category-filter button.active {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+        }
+
+        .category-filter button:hover:not(.active) {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            width: 90%;
+            max-width: 500px;
+            padding: 30px;
+            position: relative;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 40px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .notification {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            padding: 15px 25px;
+            border-radius: var(--border-radius);
+            color: white;
+            font-weight: 600;
+            box-shadow: var(--shadow);
+            z-index: 1001;
+            opacity: 0;
+            transform: translateX(100px);
+            transition: var(--transition);
+        }
+
+        .notification.show {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .notification.success {
+            background-color: var(--success-color);
+        }
+
+        .notification.error {
+            background-color: var(--danger-color);
+        }
+
+        .notification.warning {
+            background-color: var(--warning-color);
+        }
+
+        .notification.info {
+            background-color: #17a2b8;
+        }
+
+        .backup-section {
+            margin-top: 30px;
+        }
+
+        .backup-actions {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .backup-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            font-size: 0.9rem;
+        }
+
+        .backup-info h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+        }
+
+        .file-input-container {
+            position: relative;
+            margin-bottom: 15px;
+        }
+
+        .file-input-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 12px;
+            background-color: #f8f9fa;
+            border: 2px dashed #ced4da;
+            border-radius: var(--border-radius);
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .file-input-label:hover {
+            background-color: #e9ecef;
+            border-color: var(--secondary-color);
+        }
+
+        .file-input {
+            display: none;
+        }
+
+        .backup-stats {
+            display: flex;
+            gap: 15px;
+            margin-top: 15px;
+            flex-wrap: wrap;
+        }
+
+        .backup-stat {
+            background: #f8f9fa;
+            padding: 10px 15px;
+            border-radius: var(--border-radius);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.9rem;
+        }
+
+        .backup-stat i {
+            color: var(--secondary-color);
+        }
+
+        .danger-zone {
+            border: 2px solid var(--danger-color);
+            background-color: #fff5f5;
+            margin-top: 30px;
+        }
+
+        .danger-zone .card-title {
+            color: var(--danger-color);
+        }
+
+        .danger-zone .card-title i {
+            color: var(--danger-color);
+        }
+
+        .danger-zone .btn {
+            background-color: var(--danger-color);
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .stats {
+                width: 100%;
+                justify-content: space-between;
+            }
+            
+            .system-header {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .system-actions {
+                align-self: flex-start;
+            }
+            
+            .backup-actions {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div>
+                    <h1><i class="fas fa-link"></i> Gestor de Sistemas</h1>
+                    <p class="subtitle">Centralize todos os links dos seus sistemas de gestão em um só lugar</p>
+                </div>
+                <div class="stats">
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalSystems">0</div>
+                        <div class="stat-label">Sistemas</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-value" id="totalCategories">0</div>
+                        <div class="stat-label">Categorias</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="container">
+        <div class="main-content">
+            <div>
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-plus-circle"></i> Adicionar Sistema</h2>
+                    <form id="systemForm">
+                        <div class="form-group">
+                            <label for="systemName">Nome do Sistema *</label>
+                            <input type="text" id="systemName" class="form-control" placeholder="Ex: Sistema de Vendas" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="systemDescription">Descrição</label>
+                            <textarea id="systemDescription" class="form-control" rows="3" placeholder="Descreva a função deste sistema..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="systemLink">URL de Acesso *</label>
+                            <input type="url" id="systemLink" class="form-control" placeholder="https://exemplo.com/sistema" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="systemCategory">Categoria</label>
+                            <input type="text" id="systemCategory" class="form-control" placeholder="Ex: Financeiro, Vendas, RH">
+                        </div>
+                        <input type="hidden" id="systemId" value="">
+                        <div class="actions">
+                            <button type="button" id="cancelBtn" class="btn btn-danger" style="display: none;">Cancelar</button>
+                            <button type="submit" id="submitBtn" class="btn btn-primary btn-block">Adicionar Sistema</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card backup-section">
+                    <h2 class="card-title"><i class="fas fa-database"></i> Backup dos Dados</h2>
+                    
+                    <div class="backup-actions">
+                        <button id="exportBtn" class="btn btn-success">
+                            <i class="fas fa-file-export"></i> Exportar Dados
+                        </button>
+                        <button id="importBtn" class="btn btn-warning">
+                            <i class="fas fa-file-import"></i> Importar Dados
+                        </button>
+                        <button id="downloadTemplateBtn" class="btn btn-info">
+                            <i class="fas fa-file-download"></i> Template
+                        </button>
+                    </div>
+                    
+                    <div class="file-input-container">
+                        <label for="importFile" class="file-input-label">
+                            <i class="fas fa-upload"></i>
+                            <span>Clique para selecionar arquivo de backup</span>
+                        </label>
+                        <input type="file" id="importFile" class="file-input" accept=".json">
+                    </div>
+                    
+                    <div class="backup-info">
+                        <h4><i class="fas fa-info-circle"></i> Informações sobre Backup</h4>
+                        <p>• Exporte seus dados para um arquivo JSON para fazer backup</p>
+                        <p>• Importe um arquivo JSON válido para restaurar seus dados</p>
+                        <p>• Faça download do template para ver o formato correto do arquivo</p>
+                        <p>• Os backups são armazenados apenas no seu computador</p>
+                    </div>
+                    
+                    <div class="backup-stats">
+                        <div class="backup-stat">
+                            <i class="fas fa-calendar-alt"></i>
+                            <span>Último backup: <span id="lastBackupDate">Nunca</span></span>
+                        </div>
+                        <div class="backup-stat">
+                            <i class="fas fa-hdd"></i>
+                            <span>Tamanho do banco: <span id="dbSize">0 KB</span></span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card danger-zone">
+                    <h2 class="card-title"><i class="fas fa-exclamation-triangle"></i> Zona de Perigo</h2>
+                    <p>Esta ação irá remover todos os sistemas permanentemente. Use com cautela.</p>
+                    <div class="actions">
+                        <button id="clearAllBtn" class="btn btn-danger btn-block">
+                            <i class="fas fa-trash-alt"></i> Limpar Todos os Dados
+                        </button>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h2 class="card-title"><i class="fas fa-info-circle"></i> Como usar</h2>
+                    <p>1. Preencha os dados do sistema no formulário ao lado.</p>
+                    <p>2. Clique em "Adicionar Sistema" para salvar.</p>
+                    <p>3. Para acessar um sistema, clique no botão "Acessar".</p>
+                    <p>4. Use a busca para localizar rapidamente um sistema.</p>
+                    <p>5. Faça backup regular dos seus dados usando a seção de backup.</p>
+                    <p>6. Os dados são armazenados localmente no seu navegador.</p>
+                </div>
+            </div>
+
+            <div>
+                <div class="search-container">
+                    <i class="fas fa-search"></i>
+                    <input type="text" id="searchInput" class="form-control" placeholder="Buscar sistemas por nome, descrição ou categoria...">
+                </div>
+
+                <div class="category-filter" id="categoryFilter">
+                    <button class="active" data-category="all">Todos</button>
+                    <!-- Categories will be dynamically added here -->
+                </div>
+
+                <div id="systemsList">
+                    <!-- Systems will be dynamically added here -->
+                    <div class="empty-state">
+                        <i class="fas fa-cloud-download-alt"></i>
+                        <h3>Nenhum sistema cadastrado</h3>
+                        <p>Adicione seu primeiro sistema usando o formulário ao lado.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p>Gestor de Sistemas &copy; <span id="currentYear"></span> | Dados armazenados localmente no seu navegador</p>
+        </div>
+    </footer>
+
+    <!-- Modal para confirmação de importação -->
+    <div class="modal" id="importModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeImportModal">&times;</button>
+            <h2 class="card-title"><i class="fas fa-file-import"></i> Confirmar Importação</h2>
+            <p id="importSummary">Carregando informações do backup...</p>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="replaceData" checked>
+                    Substituir dados existentes
+                </label>
+                <p class="small-text">Se marcado, todos os sistemas atuais serão substituídos. Se desmarcado, os sistemas serão adicionados ao existentes.</p>
+            </div>
+            <div class="actions">
+                <button id="cancelImportBtn" class="btn btn-danger">Cancelar</button>
+                <button id="confirmImportBtn" class="btn btn-success">Confirmar Importação</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal para confirmação de limpeza -->
+    <div class="modal" id="clearModal">
+        <div class="modal-content">
+            <button class="modal-close" id="closeClearModal">&times;</button>
+            <h2 class="card-title"><i class="fas fa-exclamation-triangle"></i> Confirmar Limpeza</h2>
+            <p>Tem certeza que deseja excluir todos os sistemas? Esta ação não pode ser desfeita.</p>
+            <div class="form-group">
+                <label>
+                    <input type="checkbox" id="confirmDelete">
+                    Sim, eu entendo que esta ação é irreversível
+                </label>
+            </div>
+            <div class="actions">
+                <button id="cancelClearBtn" class="btn btn-danger">Cancelar</button>
+                <button id="confirmClearBtn" class="btn btn-danger" disabled>Limpar Todos os Dados</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="notification" id="notification"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Set current year in footer
+            document.getElementById('currentYear').textContent = new Date().getFullYear();
+            
+            // Initialize database
+            let db;
+            const dbName = 'GestorSistemasDB';
+            const storeName = 'sistemas';
+            const backupStoreName = 'backupInfo';
+            
+            // Open or create the database
+            const request = indexedDB.open(dbName, 2); // Version 2 for backup info
+            
+            request.onerror = function(event) {
+                console.error("Erro ao abrir o banco de dados:", event.target.error);
+                showNotification("Erro ao inicializar o banco de dados", "error");
+            };
+            
+            request.onupgradeneeded = function(event) {
+                db = event.target.result;
+                const oldVersion = event.oldVersion;
+                
+                // Create object store if it doesn't exist
+                if (oldVersion < 1) {
+                    const objectStore = db.createObjectStore(storeName, { keyPath: 'id', autoIncrement: true });
+                    
+                    // Create indexes for searching
+                    objectStore.createIndex('name', 'name', { unique: false });
+                    objectStore.createIndex('category', 'category', { unique: false });
+                    objectStore.createIndex('description', 'description', { unique: false });
+                }
+                
+                // Create backup info store in version 2
+                if (oldVersion < 2) {
+                    if (!db.objectStoreNames.contains(backupStoreName)) {
+                        const backupStore = db.createObjectStore(backupStoreName, { keyPath: 'id', autoIncrement: true });
+                        backupStore.createIndex('type', 'type', { unique: false });
+                        
+                        // Add initial backup info
+                        const transaction = event.target.transaction;
+                        const backupInfoStore = transaction.objectStore(backupStoreName);
+                        backupInfoStore.add({
+                            type: 'lastBackup',
+                            date: null,
+                            count: 0
+                        });
+                    }
+                }
+            };
+            
+            request.onsuccess = function(event) {
+                db = event.target.result;
+                console.log("Banco de dados inicializado com sucesso");
+                
+                // Load systems from database
+                loadSystems();
+                
+                // Load categories for filter
+                loadCategories();
+                
+                // Load backup info
+                loadBackupInfo();
+                
+                // Update database size
+                updateDBSize();
+            };
+            
+            // Form submission
+            const systemForm = document.getElementById('systemForm');
+            const submitBtn = document.getElementById('submitBtn');
+            const cancelBtn = document.getElementById('cancelBtn');
+            let editingId = null;
+            
+            systemForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const system = {
+                    name: document.getElementById('systemName').value.trim(),
+                    description: document.getElementById('systemDescription').value.trim(),
+                    link: document.getElementById('systemLink').value.trim(),
+                    category: document.getElementById('systemCategory').value.trim() || 'Geral',
+                    createdAt: new Date().toISOString(),
+                    updatedAt: new Date().toISOString()
+                };
+                
+                if (editingId) {
+                    // Update existing system
+                    updateSystem(editingId, system);
+                } else {
+                    // Add new system
+                    addSystem(system);
+                }
+            });
+            
+            // Cancel edit
+            cancelBtn.addEventListener('click', function() {
+                resetForm();
+            });
+            
+            // Search functionality
+            const searchInput = document.getElementById('searchInput');
+            searchInput.addEventListener('input', function() {
+                filterSystems();
+            });
+            
+            // Backup functionality
+            const exportBtn = document.getElementById('exportBtn');
+            const importBtn = document.getElementById('importBtn');
+            const importFile = document.getElementById('importFile');
+            const downloadTemplateBtn = document.getElementById('downloadTemplateBtn');
+            const clearAllBtn = document.getElementById('clearAllBtn');
+            
+            exportBtn.addEventListener('click', exportData);
+            importBtn.addEventListener('click', () => importFile.click());
+            importFile.addEventListener('change', handleFileImport);
+            downloadTemplateBtn.addEventListener('click', downloadTemplate);
+            clearAllBtn.addEventListener('click', showClearModal);
+            
+            // Modal elements
+            const importModal = document.getElementById('importModal');
+            const closeImportModal = document.getElementById('closeImportModal');
+            const cancelImportBtn = document.getElementById('cancelImportBtn');
+            const confirmImportBtn = document.getElementById('confirmImportBtn');
+            const clearModal = document.getElementById('clearModal');
+            const closeClearModal = document.getElementById('closeClearModal');
+            const cancelClearBtn = document.getElementById('cancelClearBtn');
+            const confirmClearBtn = document.getElementById('confirmClearBtn');
+            const confirmDeleteCheckbox = document.getElementById('confirmDelete');
+            
+            closeImportModal.addEventListener('click', () => importModal.classList.remove('show'));
+            cancelImportBtn.addEventListener('click', () => importModal.classList.remove('show'));
+            
+            closeClearModal.addEventListener('click', () => clearModal.classList.remove('show'));
+            cancelClearBtn.addEventListener('click', () => clearModal.classList.remove('show'));
+            
+            confirmDeleteCheckbox.addEventListener('change', function() {
+                confirmClearBtn.disabled = !this.checked;
+            });
+            
+            confirmClearBtn.addEventListener('click', clearAllData);
+            
+            // Function to add a system
+            function addSystem(system) {
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                
+                const request = store.add(system);
+                
+                request.onsuccess = function() {
+                    console.log("Sistema adicionado com sucesso");
+                    showNotification("Sistema adicionado com sucesso!", "success");
+                    
+                    // Reset form
+                    resetForm();
+                    
+                    // Reload systems
+                    loadSystems();
+                    loadCategories();
+                    updateDBSize();
+                };
+                
+                request.onerror = function(event) {
+                    console.error("Erro ao adicionar sistema:", event.target.error);
+                    showNotification("Erro ao adicionar sistema", "error");
+                };
+            }
+            
+            // Function to update a system
+            function updateSystem(id, system) {
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                
+                // Get the existing system first
+                const getRequest = store.get(id);
+                
+                getRequest.onsuccess = function() {
+                    const existingSystem = getRequest.result;
+                    
+                    // Update the system
+                    const updatedSystem = {
+                        ...existingSystem,
+                        ...system,
+                        id: id,
+                        updatedAt: new Date().toISOString()
+                    };
+                    
+                    const updateRequest = store.put(updatedSystem);
+                    
+                    updateRequest.onsuccess = function() {
+                        console.log("Sistema atualizado com sucesso");
+                        showNotification("Sistema atualizado com sucesso!", "success");
+                        
+                        // Reset form
+                        resetForm();
+                        
+                        // Reload systems
+                        loadSystems();
+                        loadCategories();
+                        updateDBSize();
+                    };
+                    
+                    updateRequest.onerror = function(event) {
+                        console.error("Erro ao atualizar sistema:", event.target.error);
+                        showNotification("Erro ao atualizar sistema", "error");
+                    };
+                };
+            }
+            
+            // Function to delete a system
+            function deleteSystem(id) {
+                if (!confirm("Tem certeza que deseja excluir este sistema?")) {
+                    return;
+                }
+                
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                
+                const request = store.delete(id);
+                
+                request.onsuccess = function() {
+                    console.log("Sistema excluído com sucesso");
+                    showNotification("Sistema excluído com sucesso!", "success");
+                    
+                    // Reload systems
+                    loadSystems();
+                    loadCategories();
+                    updateDBSize();
+                };
+                
+                request.onerror = function(event) {
+                    console.error("Erro ao excluir sistema:", event.target.error);
+                    showNotification("Erro ao excluir sistema", "error");
+                };
+            }
+            
+            // Function to load all systems
+            function loadSystems(filter = '', category = 'all') {
+                const transaction = db.transaction([storeName], 'readonly');
+                const store = transaction.objectStore(storeName);
+                const request = store.getAll();
+                
+                request.onsuccess = function() {
+                    const systems = request.result;
+                    displaySystems(systems, filter, category);
+                    
+                    // Update stats
+                    updateStats(systems);
+                };
+                
+                request.onerror = function(event) {
+                    console.error("Erro ao carregar sistemas:", event.target.error);
+                };
+            }
+            
+            // Function to display systems
+            function displaySystems(systems, filter = '', category = 'all') {
+                const systemsList = document.getElementById('systemsList');
+                
+                if (systems.length === 0) {
+                    systemsList.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-cloud-download-alt"></i>
+                            <h3>Nenhum sistema cadastrado</h3>
+                            <p>Adicione seu primeiro sistema usando o formulário ao lado.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Filter systems
+                let filteredSystems = systems;
+                
+                if (filter) {
+                    const searchTerm = filter.toLowerCase();
+                    filteredSystems = systems.filter(system => 
+                        system.name.toLowerCase().includes(searchTerm) ||
+                        (system.description && system.description.toLowerCase().includes(searchTerm)) ||
+                        (system.category && system.category.toLowerCase().includes(searchTerm))
+                    );
+                }
+                
+                if (category !== 'all') {
+                    filteredSystems = filteredSystems.filter(system => 
+                        system.category === category
+                    );
+                }
+                
+                if (filteredSystems.length === 0) {
+                    systemsList.innerHTML = `
+                        <div class="empty-state">
+                            <i class="fas fa-search"></i>
+                            <h3>Nenhum sistema encontrado</h3>
+                            <p>Tente ajustar sua busca ou filtro.</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                // Sort systems by name
+                filteredSystems.sort((a, b) => a.name.localeCompare(b.name));
+                
+                // Generate HTML for systems
+                let html = '';
+                
+                filteredSystems.forEach(system => {
+                    html += `
+                        <div class="system-card" data-id="${system.id}">
+                            <div class="system-header">
+                                <div>
+                                    <div class="system-name">${system.name}</div>
+                                    <div class="system-category">${system.category}</div>
+                                </div>
+                                <div class="system-actions">
+                                    <button class="btn btn-primary btn-sm edit-btn" title="Editar">
+                                        <i class="fas fa-edit"></i>
+                                    </button>
+                                    <button class="btn btn-danger btn-sm delete-btn" title="Excluir">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="system-description">${system.description || 'Sem descrição'}</div>
+                            <a href="${system.link}" target="_blank" class="system-link">
+                                <i class="fas fa-external-link-alt"></i> Acessar Sistema
+                            </a>
+                        </div>
+                    `;
+                });
+                
+                systemsList.innerHTML = html;
+                
+                // Add event listeners to edit and delete buttons
+                document.querySelectorAll('.edit-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const systemCard = this.closest('.system-card');
+                        const systemId = parseInt(systemCard.dataset.id);
+                        editSystem(systemId);
+                    });
+                });
+                
+                document.querySelectorAll('.delete-btn').forEach(btn => {
+                    btn.addEventListener('click', function() {
+                        const systemCard = this.closest('.system-card');
+                        const systemId = parseInt(systemCard.dataset.id);
+                        deleteSystem(systemId);
+                    });
+                });
+            }
+            
+            // Function to load categories for filter
+            function loadCategories() {
+                const transaction = db.transaction([storeName], 'readonly');
+                const store = transaction.objectStore(storeName);
+                const request = store.getAll();
+                
+                request.onsuccess = function() {
+                    const systems = request.result;
+                    const categories = new Set();
+                    
+                    systems.forEach(system => {
+                        if (system.category) {
+                            categories.add(system.category);
+                        }
+                    });
+                    
+                    displayCategories(Array.from(categories));
+                };
+            }
+            
+            // Function to display categories
+            function displayCategories(categories) {
+                const categoryFilter = document.getElementById('categoryFilter');
+                
+                // Clear existing categories except "All"
+                const allButton = categoryFilter.querySelector('[data-category="all"]');
+                categoryFilter.innerHTML = '';
+                categoryFilter.appendChild(allButton);
+                
+                // Sort categories alphabetically
+                categories.sort();
+                
+                // Add category buttons
+                categories.forEach(category => {
+                    const button = document.createElement('button');
+                    button.textContent = category;
+                    button.dataset.category = category;
+                    
+                    button.addEventListener('click', function() {
+                        // Set active class
+                        document.querySelectorAll('#categoryFilter button').forEach(btn => {
+                            btn.classList.remove('active');
+                        });
+                        this.classList.add('active');
+                        
+                        // Filter systems by category
+                        const searchValue = document.getElementById('searchInput').value;
+                        loadSystems(searchValue, category);
+                    });
+                    
+                    categoryFilter.appendChild(button);
+                });
+            }
+            
+            // Function to edit a system
+            function editSystem(id) {
+                const transaction = db.transaction([storeName], 'readonly');
+                const store = transaction.objectStore(storeName);
+                const request = store.get(id);
+                
+                request.onsuccess = function() {
+                    const system = request.result;
+                    
+                    // Fill form with system data
+                    document.getElementById('systemName').value = system.name;
+                    document.getElementById('systemDescription').value = system.description || '';
+                    document.getElementById('systemLink').value = system.link;
+                    document.getElementById('systemCategory').value = system.category || '';
+                    document.getElementById('systemId').value = system.id;
+                    
+                    // Change button text and show cancel button
+                    submitBtn.textContent = 'Atualizar Sistema';
+                    cancelBtn.style.display = 'inline-flex';
+                    editingId = system.id;
+                    
+                    // Scroll to form
+                    document.getElementById('systemName').scrollIntoView({ behavior: 'smooth' });
+                };
+            }
+            
+            // Function to reset form
+            function resetForm() {
+                systemForm.reset();
+                document.getElementById('systemId').value = '';
+                submitBtn.textContent = 'Adicionar Sistema';
+                cancelBtn.style.display = 'none';
+                editingId = null;
+            }
+            
+            // Function to filter systems
+            function filterSystems() {
+                const searchValue = document.getElementById('searchInput').value;
+                const activeCategory = document.querySelector('#categoryFilter button.active').dataset.category;
+                loadSystems(searchValue, activeCategory);
+            }
+            
+            // Function to update statistics
+            function updateStats(systems) {
+                const categories = new Set();
+                
+                systems.forEach(system => {
+                    if (system.category) {
+                        categories.add(system.category);
+                    }
+                });
+                
+                document.getElementById('totalSystems').textContent = systems.length;
+                document.getElementById('totalCategories').textContent = categories.size;
+            }
+            
+            // Function to export data
+            function exportData() {
+                const transaction = db.transaction([storeName], 'readonly');
+                const store = transaction.objectStore(storeName);
+                const request = store.getAll();
+                
+                request.onsuccess = function() {
+                    const systems = request.result;
+                    
+                    // Create export object
+                    const exportData = {
+                        version: '1.0',
+                        exportDate: new Date().toISOString(),
+                        system: 'Gestor de Sistemas Backup',
+                        count: systems.length,
+                        data: systems
+                    };
+                    
+                    // Convert to JSON string
+                    const jsonData = JSON.stringify(exportData, null, 2);
+                    
+                    // Create blob and download link
+                    const blob = new Blob([jsonData], { type: 'application/json' });
+                    const url = URL.createObjectURL(blob);
+                    const a = document.createElement('a');
+                    a.href = url;
+                    a.download = `gestor-sistemas-backup-${new Date().toISOString().split('T')[0]}.json`;
+                    document.body.appendChild(a);
+                    a.click();
+                    document.body.removeChild(a);
+                    URL.revokeObjectURL(url);
+                    
+                    // Update backup info
+                    updateBackupInfo();
+                    
+                    showNotification(`Backup exportado com sucesso! ${systems.length} sistemas salvos.`, "success");
+                };
+                
+                request.onerror = function(event) {
+                    console.error("Erro ao exportar dados:", event.target.error);
+                    showNotification("Erro ao exportar dados", "error");
+                };
+            }
+            
+            // Function to handle file import
+            function handleFileImport(event) {
+                const file = event.target.files[0];
+                if (!file) return;
+                
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    try {
+                        const fileContent = e.target.result;
+                        const importData = JSON.parse(fileContent);
+                        
+                        // Validate import data
+                        if (!importData.data || !Array.isArray(importData.data)) {
+                            showNotification("Arquivo de backup inválido. Formato incorreto.", "error");
+                            return;
+                        }
+                        
+                        // Show import confirmation modal
+                        showImportModal(importData);
+                        
+                    } catch (error) {
+                        console.error("Erro ao processar arquivo:", error);
+                        showNotification("Erro ao processar arquivo. Certifique-se de que é um JSON válido.", "error");
+                    }
+                };
+                
+                reader.readAsText(file);
+                
+                // Reset file input
+                event.target.value = '';
+            }
+            
+            // Function to show import confirmation modal
+            function showImportModal(importData) {
+                const importSummary = document.getElementById('importSummary');
+                importSummary.innerHTML = `
+                    <p><strong>Arquivo de backup encontrado:</strong></p>
+                    <p>Sistemas no arquivo: ${importData.data.length}</p>
+                    <p>Data do backup: ${new Date(importData.exportDate || Date.now()).toLocaleDateString('pt-BR')}</p>
+                    <p>Versão: ${importData.version || 'Desconhecida'}</p>
+                `;
+                
+                importModal.classList.add('show');
+                
+                // Set up confirm import button
+                confirmImportBtn.onclick = function() {
+                    const replaceData = document.getElementById('replaceData').checked;
+                    importDataFromFile(importData.data, replaceData);
+                    importModal.classList.remove('show');
+                };
+            }
+            
+            // Function to import data from file
+            function importDataFromFile(systemsData, replaceExisting) {
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                
+                if (replaceExisting) {
+                    // Clear all existing data first
+                    const clearRequest = store.clear();
+                    
+                    clearRequest.onsuccess = function() {
+                        // Add all systems from import
+                        addSystemsBatch(systemsData, 0);
+                    };
+                    
+                    clearRequest.onerror = function(event) {
+                        console.error("Erro ao limpar dados:", event.target.error);
+                        showNotification("Erro ao importar dados", "error");
+                    };
+                } else {
+                    // Add to existing data
+                    addSystemsBatch(systemsData, 0);
+                }
+            }
+            
+            // Function to add systems in batch (to avoid transaction issues)
+            function addSystemsBatch(systems, index) {
+                if (index >= systems.length) {
+                    // All systems added
+                    showNotification(`Importação concluída! ${systems.length} sistemas importados.`, "success");
+                    
+                    // Reload systems
+                    loadSystems();
+                    loadCategories();
+                    updateDBSize();
+                    updateBackupInfo();
+                    return;
+                }
+                
+                const system = systems[index];
+                
+                // Add created/updated dates if missing
+                if (!system.createdAt) system.createdAt = new Date().toISOString();
+                system.updatedAt = new Date().toISOString();
+                
+                // Ensure category exists
+                if (!system.category) system.category = 'Geral';
+                
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                
+                // Add the system
+                const request = store.add(system);
+                
+                request.onsuccess = function() {
+                    // Add next system
+                    addSystemsBatch(systems, index + 1);
+                };
+                
+                request.onerror = function(event) {
+                    console.error(`Erro ao adicionar sistema ${index + 1}:`, event.target.error);
+                    // Continue with next system despite error
+                    addSystemsBatch(systems, index + 1);
+                };
+            }
+            
+            // Function to download template
+            function downloadTemplate() {
+                const templateData = {
+                    version: '1.0',
+                    exportDate: new Date().toISOString(),
+                    system: 'Gestor de Sistemas Backup',
+                    count: 2,
+                    data: [
+                        {
+                            name: "Sistema de Exemplo 1",
+                            description: "Esta é uma descrição de exemplo",
+                            link: "https://exemplo.com/sistema1",
+                            category: "Exemplo",
+                            createdAt: new Date().toISOString(),
+                            updatedAt: new Date().toISOString()
+                        },
+                        {
+                            name: "Sistema de Exemplo 2",
+                            description: "Outra descrição de exemplo",
+                            link: "https://exemplo.com/sistema2",
+                            category: "Teste",
+                            createdAt: new Date().toISOString(),
+                            updatedAt: new Date().toISOString()
+                        }
+                    ]
+                };
+                
+                const jsonData = JSON.stringify(templateData, null, 2);
+                const blob = new Blob([jsonData], { type: 'application/json' });
+                const url = URL.createObjectURL(blob);
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = 'gestor-sistemas-template.json';
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                URL.revokeObjectURL(url);
+                
+                showNotification("Template baixado com sucesso!", "info");
+            }
+            
+            // Function to show clear modal
+            function showClearModal() {
+                clearModal.classList.add('show');
+            }
+            
+            // Function to clear all data
+            function clearAllData() {
+                const transaction = db.transaction([storeName], 'readwrite');
+                const store = transaction.objectStore(storeName);
+                
+                const request = store.clear();
+                
+                request.onsuccess = function() {
+                    console.log("Todos os dados foram limpos");
+                    showNotification("Todos os dados foram removidos com sucesso!", "success");
+                    
+                    // Close modal
+                    clearModal.classList.remove('show');
+                    confirmDeleteCheckbox.checked = false;
+                    confirmClearBtn.disabled = true;
+                    
+                    // Reload systems
+                    loadSystems();
+                    loadCategories();
+                    updateDBSize();
+                };
+                
+                request.onerror = function(event) {
+                    console.error("Erro ao limpar dados:", event.target.error);
+                    showNotification("Erro ao limpar dados", "error");
+                };
+            }
+            
+            // Function to load backup info
+            function loadBackupInfo() {
+                const transaction = db.transaction([backupStoreName], 'readonly');
+                const store = transaction.objectStore(backupStoreName);
+                const index = store.index('type');
+                const request = index.get('lastBackup');
+                
+                request.onsuccess = function() {
+                    const backupInfo = request.result;
+                    if (backupInfo && backupInfo.date) {
+                        const lastBackupDate = new Date(backupInfo.date);
+                        document.getElementById('lastBackupDate').textContent = lastBackupDate.toLocaleDateString('pt-BR') + ' ' + lastBackupDate.toLocaleTimeString('pt-BR');
+                    }
+                };
+            }
+            
+            // Function to update backup info
+            function updateBackupInfo() {
+                const transaction = db.transaction([backupStoreName], 'readwrite');
+                const store = transaction.objectStore(backupStoreName);
+                const index = store.index('type');
+                const request = index.get('lastBackup');
+                
+                request.onsuccess = function() {
+                    const backupInfo = request.result;
+                    
+                    if (backupInfo) {
+                        backupInfo.date = new Date().toISOString();
+                        backupInfo.count = (backupInfo.count || 0) + 1;
+                        
+                        const updateRequest = store.put(backupInfo);
+                        
+                        updateRequest.onsuccess = function() {
+                            loadBackupInfo();
+                        };
+                    }
+                };
+            }
+            
+            // Function to update database size
+            function updateDBSize() {
+                const transaction = db.transaction([storeName], 'readonly');
+                const store = transaction.objectStore(storeName);
+                const request = store.getAll();
+                
+                request.onsuccess = function() {
+                    const systems = request.result;
+                    const jsonData = JSON.stringify(systems);
+                    const sizeInBytes = new Blob([jsonData]).size;
+                    const sizeInKB = (sizeInBytes / 1024).toFixed(2);
+                    
+                    document.getElementById('dbSize').textContent = `${sizeInKB} KB`;
+                };
+            }
+            
+            // Function to show notification
+            function showNotification(message, type = 'success') {
+                const notification = document.getElementById('notification');
+                notification.textContent = message;
+                notification.className = `notification ${type}`;
+                
+                // Show notification
+                setTimeout(() => {
+                    notification.classList.add('show');
+                }, 10);
+                
+                // Hide notification after 3 seconds
+                setTimeout(() => {
+                    notification.classList.remove('show');
+                }, 3000);
+            }
+            
+            // Add event listeners to category filter buttons
+            document.querySelectorAll('#categoryFilter button').forEach(btn => {
+                btn.addEventListener('click', function() {
+                    // Remove active class from all buttons
+                    document.querySelectorAll('#categoryFilter button').forEach(b => {
+                        b.classList.remove('active');
+                    });
+                    
+                    // Add active class to clicked button
+                    this.classList.add('active');
+                    
+                    // Filter systems
+                    const searchValue = document.getElementById('searchInput').value;
+                    const category = this.dataset.category;
+                    loadSystems(searchValue, category);
+                });
+            });
+            
+            // Add some sample data if database is empty
+            function addSampleDataIfEmpty() {
+                const transaction = db.transaction([storeName], 'readonly');
+                const store = transaction.objectStore(storeName);
+                const countRequest = store.count();
+                
+                countRequest.onsuccess = function() {
+                    if (countRequest.result === 0) {
+                        const sampleSystems = [
+                            {
+                                name: "Sistema de Vendas",
+                                description: "Gestão de vendas e pedidos",
+                                link: "https://exemplo.com/vendas",
+                                category: "Vendas",
+                                createdAt: new Date().toISOString(),
+                                updatedAt: new Date().toISOString()
+                            },
+                            {
+                                name: "Controle Financeiro",
+                                description: "Gestão financeira e contábil",
+                                link: "https://exemplo.com/financeiro",
+                                category: "Financeiro",
+                                createdAt: new Date().toISOString(),
+                                updatedAt: new Date().toISOString()
+                            },
+                            {
+                                name: "Recursos Humanos",
+                                description: "Gestão de colaboradores e folha de pagamento",
+                                link: "https://exemplo.com/rh",
+                                category: "RH",
+                                createdAt: new Date().toISOString(),
+                                updatedAt: new Date().toISOString()
+                            }
+                        ];
+                        
+                        // Add sample systems
+                        sampleSystems.forEach(system => {
+                            addSystem(system);
+                        });
+                        
+                        showNotification("Dados de exemplo adicionados. Você pode editá-los ou excluí-los.", "success");
+                    }
+                };
+            }
+            
+            // Call this function after database initialization
+            setTimeout(addSampleDataIfEmpty, 1000);
+        });
+    </script>
+</body>
+</html>
