@@ -16,9 +16,14 @@
             --danger-color: #e74c3c;
             --warning-color: #f39c12;
             --success-color: #27ae60;
+            --purple-color: #9b59b6;
             --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --border-radius: 8px;
+            --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.15);
+            --border-radius: 10px;
             --transition: all 0.3s ease;
+            --gradient-primary: linear-gradient(135deg, var(--primary-color), #34495e);
+            --gradient-secondary: linear-gradient(135deg, var(--secondary-color), #2980b9);
+            --gradient-success: linear-gradient(135deg, var(--success-color), #219653);
         }
 
         * {
@@ -29,24 +34,158 @@
         }
 
         body {
-            background-color: #f5f7fa;
+            background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
             color: var(--dark-color);
             line-height: 1.6;
-            padding-bottom: 40px;
+            min-height: 100vh;
         }
 
         .container {
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 0 20px;
         }
 
-        header {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        /* Login Container */
+        .login-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+        }
+
+        .login-card {
+            background: white;
+            border-radius: var(--border-radius);
+            box-shadow: var(--shadow-lg);
+            width: 100%;
+            max-width: 450px;
+            padding: 40px;
+            text-align: center;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .login-header {
+            margin-bottom: 30px;
+        }
+
+        .login-header h1 {
+            color: var(--primary-color);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .login-header p {
+            color: #7f8c8d;
+            font-size: 1rem;
+        }
+
+        .login-icon {
+            font-size: 4rem;
+            color: var(--secondary-color);
+            margin-bottom: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            margin-bottom: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab-button {
+            flex: 1;
+            padding: 15px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #7f8c8d;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-button.active {
+            color: var(--secondary-color);
+            border-bottom-color: var(--secondary-color);
+        }
+
+        .tab-content {
+            text-align: left;
+        }
+
+        .tab-pane {
+            display: none;
+        }
+
+        .tab-pane.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px 20px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .user-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
             color: white;
-            padding: 25px 0;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 1rem;
+        }
+
+        .user-email {
+            font-size: 0.85rem;
+            opacity: 0.8;
+        }
+
+        /* Main App Styles (shown after login) */
+        .app-container {
+            display: none;
+        }
+
+        .app-container.active {
+            display: block;
+        }
+
+        header {
+            background: var(--gradient-primary);
+            color: white;
+            padding: 20px 0;
             box-shadow: var(--shadow);
             margin-bottom: 30px;
+            position: sticky;
+            top: 0;
+            z-index: 100;
         }
 
         .header-content {
@@ -54,24 +193,42 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            font-size: 2rem;
+            color: var(--accent-color);
         }
 
         h1 {
-            font-size: 2.2rem;
+            font-size: 2rem;
             margin-bottom: 5px;
         }
 
         .subtitle {
-            font-size: 1rem;
+            font-size: 0.95rem;
             opacity: 0.9;
             font-weight: 300;
         }
 
         .stats {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             background: rgba(255, 255, 255, 0.15);
-            padding: 12px 20px;
+            padding: 15px 25px;
             border-radius: var(--border-radius);
             backdrop-filter: blur(5px);
         }
@@ -81,12 +238,12 @@
         }
 
         .stat-value {
-            font-size: 1.8rem;
+            font-size: 2rem;
             font-weight: 700;
         }
 
         .stat-label {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             opacity: 0.9;
         }
 
@@ -94,6 +251,7 @@
             display: grid;
             grid-template-columns: 1fr 2fr;
             gap: 30px;
+            margin-bottom: 40px;
         }
 
         @media (max-width: 992px) {
@@ -106,17 +264,31 @@
             background: white;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            padding: 25px;
+            padding: 30px;
             margin-bottom: 25px;
             transition: var(--transition);
+            border: 1px solid rgba(0, 0, 0, 0.05);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-secondary);
         }
 
         .card:hover {
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+            box-shadow: var(--shadow-lg);
+            transform: translateY(-5px);
         }
 
         .card-title {
-            font-size: 1.4rem;
+            font-size: 1.5rem;
             margin-bottom: 20px;
             color: var(--primary-color);
             display: flex;
@@ -141,17 +313,19 @@
 
         .form-control {
             width: 100%;
-            padding: 12px 15px;
+            padding: 14px 15px;
             border: 1px solid #ddd;
             border-radius: var(--border-radius);
             font-size: 1rem;
             transition: var(--transition);
+            background: #f9f9f9;
         }
 
         .form-control:focus {
             border-color: var(--secondary-color);
             outline: none;
             box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+            background: white;
         }
 
         .btn {
@@ -159,33 +333,34 @@
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 12px 25px;
+            padding: 14px 25px;
             border: none;
             border-radius: var(--border-radius);
             font-size: 1rem;
             font-weight: 600;
             cursor: pointer;
             transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
         .btn-primary {
-            background-color: var(--secondary-color);
+            background: var(--gradient-secondary);
             color: white;
         }
 
         .btn-primary:hover {
-            background-color: #2980b9;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(52, 152, 219, 0.3);
         }
 
         .btn-success {
-            background-color: var(--success-color);
+            background: var(--gradient-success);
             color: white;
         }
 
         .btn-success:hover {
-            background-color: #219653;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(39, 174, 96, 0.3);
         }
 
         .btn-danger {
@@ -195,7 +370,8 @@
 
         .btn-danger:hover {
             background-color: #c0392b;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(231, 76, 60, 0.3);
         }
 
         .btn-warning {
@@ -205,17 +381,19 @@
 
         .btn-warning:hover {
             background-color: #e67e22;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(243, 156, 18, 0.3);
         }
 
-        .btn-info {
-            background-color: #17a2b8;
+        .btn-purple {
+            background-color: var(--purple-color);
             color: white;
         }
 
-        .btn-info:hover {
-            background-color: #138496;
-            transform: translateY(-2px);
+        .btn-purple:hover {
+            background-color: #8e44ad;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(155, 89, 182, 0.3);
         }
 
         .btn-block {
@@ -223,7 +401,7 @@
         }
 
         .btn-sm {
-            padding: 8px 15px;
+            padding: 10px 15px;
             font-size: 0.9rem;
         }
 
@@ -255,15 +433,34 @@
             background: white;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            padding: 20px;
+            padding: 25px;
             margin-bottom: 20px;
             border-left: 5px solid var(--secondary-color);
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .system-card:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
+        }
+
+        .system-card:hover:before {
+            transform: scaleX(1);
         }
 
         .system-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+            box-shadow: var(--shadow-lg);
         }
 
         .system-header {
@@ -274,7 +471,7 @@
         }
 
         .system-name {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             font-weight: 700;
             color: var(--primary-color);
             margin-bottom: 5px;
@@ -284,17 +481,20 @@
             display: inline-block;
             background: #e8f4fc;
             color: var(--secondary-color);
-            padding: 4px 10px;
+            padding: 6px 12px;
             border-radius: 30px;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             font-weight: 600;
             margin-top: 5px;
         }
 
         .system-description {
             color: #555;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
             line-height: 1.5;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
         }
 
         .system-link {
@@ -303,39 +503,41 @@
             gap: 8px;
             background: var(--accent-color);
             color: white;
-            padding: 10px 20px;
+            padding: 12px 24px;
             border-radius: var(--border-radius);
             text-decoration: none;
             font-weight: 600;
             transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(26, 188, 156, 0.2);
         }
 
         .system-link:hover {
             background: #16a085;
-            transform: translateY(-2px);
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(26, 188, 156, 0.3);
         }
 
         .system-actions {
             display: flex;
             gap: 10px;
-            margin-top: 15px;
+            margin-top: 20px;
         }
 
         .empty-state {
             text-align: center;
-            padding: 50px 20px;
+            padding: 60px 20px;
             color: #7f8c8d;
         }
 
         .empty-state i {
-            font-size: 4rem;
+            font-size: 5rem;
             margin-bottom: 20px;
             color: #bdc3c7;
         }
 
         .empty-state h3 {
-            margin-bottom: 10px;
-            font-size: 1.5rem;
+            margin-bottom: 15px;
+            font-size: 1.8rem;
         }
 
         .category-filter {
@@ -346,23 +548,26 @@
         }
 
         .category-filter button {
-            padding: 8px 15px;
+            padding: 10px 18px;
             border: 1px solid #ddd;
             background: white;
             border-radius: 30px;
             cursor: pointer;
             transition: var(--transition);
+            font-weight: 500;
         }
 
         .category-filter button.active {
             background: var(--secondary-color);
             color: white;
             border-color: var(--secondary-color);
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
         }
 
         .category-filter button:hover:not(.active) {
             border-color: var(--secondary-color);
             color: var(--secondary-color);
+            transform: translateY(-2px);
         }
 
         .modal {
@@ -372,10 +577,11 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.5);
+            background: rgba(0, 0, 0, 0.6);
             z-index: 1000;
             align-items: center;
             justify-content: center;
+            animation: fadeIn 0.3s ease;
         }
 
         .modal.show {
@@ -389,6 +595,13 @@
             max-width: 500px;
             padding: 30px;
             position: relative;
+            box-shadow: var(--shadow-lg);
+            animation: modalSlideIn 0.4s ease;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .modal-close {
@@ -400,6 +613,11 @@
             font-size: 1.5rem;
             cursor: pointer;
             color: #7f8c8d;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--danger-color);
         }
 
         footer {
@@ -409,13 +627,14 @@
             border-top: 1px solid #ddd;
             color: #7f8c8d;
             font-size: 0.9rem;
+            padding-bottom: 20px;
         }
 
         .notification {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 15px 25px;
+            padding: 18px 25px;
             border-radius: var(--border-radius);
             color: white;
             font-weight: 600;
@@ -424,6 +643,10 @@
             opacity: 0;
             transform: translateX(100px);
             transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            max-width: 400px;
         }
 
         .notification.show {
@@ -432,7 +655,7 @@
         }
 
         .notification.success {
-            background-color: var(--success-color);
+            background: var(--gradient-success);
         }
 
         .notification.error {
@@ -461,15 +684,18 @@
         .backup-info {
             background-color: #f8f9fa;
             border-left: 4px solid var(--secondary-color);
-            padding: 15px;
+            padding: 20px;
             margin-top: 20px;
-            border-radius: 4px;
-            font-size: 0.9rem;
+            border-radius: var(--border-radius);
+            font-size: 0.95rem;
         }
 
         .backup-info h4 {
             margin-bottom: 10px;
             color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
         }
 
         .file-input-container {
@@ -482,7 +708,7 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 12px;
+            padding: 20px;
             background-color: #f8f9fa;
             border: 2px dashed #ced4da;
             border-radius: var(--border-radius);
@@ -501,23 +727,26 @@
 
         .backup-stats {
             display: flex;
-            gap: 15px;
-            margin-top: 15px;
+            gap: 20px;
+            margin-top: 20px;
             flex-wrap: wrap;
         }
 
         .backup-stat {
             background: #f8f9fa;
-            padding: 10px 15px;
+            padding: 15px;
             border-radius: var(--border-radius);
             display: flex;
             align-items: center;
             gap: 10px;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
+            flex: 1;
+            min-width: 200px;
         }
 
         .backup-stat i {
             color: var(--secondary-color);
+            font-size: 1.2rem;
         }
 
         .danger-zone {
@@ -538,11 +767,51 @@
             background-color: var(--danger-color);
         }
 
+        .password-strength {
+            height: 5px;
+            border-radius: 5px;
+            margin-top: 10px;
+            background: #eee;
+            overflow: hidden;
+        }
+
+        .password-strength-bar {
+            height: 100%;
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
+        .password-strength.weak .password-strength-bar {
+            background-color: var(--danger-color);
+            width: 33%;
+        }
+
+        .password-strength.medium .password-strength-bar {
+            background-color: var(--warning-color);
+            width: 66%;
+        }
+
+        .password-strength.strong .password-strength-bar {
+            background-color: var(--success-color);
+            width: 100%;
+        }
+
+        .password-hint {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-top: 5px;
+        }
+
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 align-items: flex-start;
                 gap: 20px;
+            }
+            
+            .header-left {
+                width: 100%;
+                justify-content: space-between;
             }
             
             .stats {
@@ -562,208 +831,363 @@
             .backup-actions {
                 grid-template-columns: 1fr;
             }
+            
+            .user-info {
+                padding: 8px 15px;
+            }
+            
+            .login-card {
+                padding: 30px 20px;
+            }
         }
     </style>
 </head>
 <body>
-    <header>
-        <div class="container">
-            <div class="header-content">
-                <div>
-                    <h1><i class="fas fa-link"></i> Gestor de Sistemas</h1>
-                    <p class="subtitle">Centralize todos os links dos seus sistemas de gestão em um só lugar</p>
+    <!-- Login Screen -->
+    <div class="login-container" id="loginContainer">
+        <div class="login-card">
+            <div class="login-header">
+                <div class="login-icon">
+                    <i class="fas fa-lock"></i>
                 </div>
-                <div class="stats">
-                    <div class="stat-item">
-                        <div class="stat-value" id="totalSystems">0</div>
-                        <div class="stat-label">Sistemas</div>
-                    </div>
-                    <div class="stat-item">
-                        <div class="stat-value" id="totalCategories">0</div>
-                        <div class="stat-label">Categorias</div>
-                    </div>
-                </div>
+                <h1>Gestor de Sistemas</h1>
+                <p>Centralize todos os links dos seus sistemas de gestão</p>
             </div>
-        </div>
-    </header>
-
-    <div class="container">
-        <div class="main-content">
-            <div>
-                <div class="card">
-                    <h2 class="card-title"><i class="fas fa-plus-circle"></i> Adicionar Sistema</h2>
-                    <form id="systemForm">
-                        <div class="form-group">
-                            <label for="systemName">Nome do Sistema *</label>
-                            <input type="text" id="systemName" class="form-control" placeholder="Ex: Sistema de Vendas" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="systemDescription">Descrição</label>
-                            <textarea id="systemDescription" class="form-control" rows="3" placeholder="Descreva a função deste sistema..."></textarea>
-                        </div>
-                        <div class="form-group">
-                            <label for="systemLink">URL de Acesso *</label>
-                            <input type="url" id="systemLink" class="form-control" placeholder="https://exemplo.com/sistema" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="systemCategory">Categoria</label>
-                            <input type="text" id="systemCategory" class="form-control" placeholder="Ex: Financeiro, Vendas, RH">
-                        </div>
-                        <input type="hidden" id="systemId" value="">
-                        <div class="actions">
-                            <button type="button" id="cancelBtn" class="btn btn-danger" style="display: none;">Cancelar</button>
-                            <button type="submit" id="submitBtn" class="btn btn-primary btn-block">Adicionar Sistema</button>
-                        </div>
-                    </form>
-                </div>
-
-                <div class="card backup-section">
-                    <h2 class="card-title"><i class="fas fa-database"></i> Backup dos Dados</h2>
-                    
-                    <div class="backup-actions">
-                        <button id="exportBtn" class="btn btn-success">
-                            <i class="fas fa-file-export"></i> Exportar Dados
-                        </button>
-                        <button id="importBtn" class="btn btn-warning">
-                            <i class="fas fa-file-import"></i> Importar Dados
-                        </button>
-                        <button id="downloadTemplateBtn" class="btn btn-info">
-                            <i class="fas fa-file-download"></i> Template
-                        </button>
+            
+            <div class="tabs">
+                <button class="tab-button active" data-tab="login">Login</button>
+                <button class="tab-button" data-tab="register">Cadastro</button>
+            </div>
+            
+            <div class="tab-content">
+                <!-- Login Form -->
+                <form id="loginForm" class="tab-pane active">
+                    <div class="form-group">
+                        <label for="loginEmail">E-mail</label>
+                        <input type="email" id="loginEmail" class="form-control" placeholder="seu@email.com" required>
                     </div>
-                    
-                    <div class="file-input-container">
-                        <label for="importFile" class="file-input-label">
-                            <i class="fas fa-upload"></i>
-                            <span>Clique para selecionar arquivo de backup</span>
-                        </label>
-                        <input type="file" id="importFile" class="file-input" accept=".json">
+                    <div class="form-group">
+                        <label for="loginPassword">Senha</label>
+                        <input type="password" id="loginPassword" class="form-control" placeholder="Sua senha" required>
                     </div>
-                    
-                    <div class="backup-info">
-                        <h4><i class="fas fa-info-circle"></i> Informações sobre Backup</h4>
-                        <p>• Exporte seus dados para um arquivo JSON para fazer backup</p>
-                        <p>• Importe um arquivo JSON válido para restaurar seus dados</p>
-                        <p>• Faça download do template para ver o formato correto do arquivo</p>
-                        <p>• Os backups são armazenados apenas no seu computador</p>
-                    </div>
-                    
-                    <div class="backup-stats">
-                        <div class="backup-stat">
-                            <i class="fas fa-calendar-alt"></i>
-                            <span>Último backup: <span id="lastBackupDate">Nunca</span></span>
-                        </div>
-                        <div class="backup-stat">
-                            <i class="fas fa-hdd"></i>
-                            <span>Tamanho do banco: <span id="dbSize">0 KB</span></span>
-                        </div>
-                    </div>
-                </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-sign-in-alt"></i> Entrar
+                    </button>
+                </form>
                 
-                <div class="card danger-zone">
-                    <h2 class="card-title"><i class="fas fa-exclamation-triangle"></i> Zona de Perigo</h2>
-                    <p>Esta ação irá remover todos os sistemas permanentemente. Use com cautela.</p>
-                    <div class="actions">
-                        <button id="clearAllBtn" class="btn btn-danger btn-block">
-                            <i class="fas fa-trash-alt"></i> Limpar Todos os Dados
+                <!-- Register Form -->
+                <form id="registerForm" class="tab-pane">
+                    <div class="form-group">
+                        <label for="registerName">Nome</label>
+                        <input type="text" id="registerName" class="form-control" placeholder="Seu nome completo" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerEmail">E-mail</label>
+                        <input type="email" id="registerEmail" class="form-control" placeholder="seu@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPassword">Senha</label>
+                        <input type="password" id="registerPassword" class="form-control" placeholder="Mínimo 6 caracteres" required minlength="6">
+                        <div class="password-strength" id="passwordStrength">
+                            <div class="password-strength-bar"></div>
+                        </div>
+                        <div class="password-hint" id="passwordHint"></div>
+                    </div>
+                    <div class="form-group">
+                        <label for="registerPasswordConfirm">Confirmar Senha</label>
+                        <input type="password" id="registerPasswordConfirm" class="form-control" placeholder="Confirme sua senha" required minlength="6">
+                    </div>
+                    <button type="submit" class="btn btn-success btn-block">
+                        <i class="fas fa-user-plus"></i> Criar Conta
+                    </button>
+                </form>
+            </div>
+            
+            <div class="login-footer" style="margin-top: 20px;">
+                <p><i class="fas fa-info-circle"></i> Os dados são armazenados localmente no seu navegador.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Main Application (hidden until login) -->
+    <div class="app-container" id="appContainer">
+        <header>
+            <div class="container">
+                <div class="header-content">
+                    <div class="header-left">
+                        <div class="logo">
+                            <i class="fas fa-link logo-icon"></i>
+                            <div>
+                                <h1>Gestor de Sistemas</h1>
+                                <p class="subtitle">Bem-vindo, <span id="currentUserName"></span></p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="user-info" id="userInfo">
+                        <div class="user-avatar" id="userAvatar">
+                            U
+                        </div>
+                        <div class="user-details">
+                            <div class="user-name" id="userNameDisplay"></div>
+                            <div class="user-email" id="userEmailDisplay"></div>
+                        </div>
+                        <button id="logoutBtn" class="btn btn-sm btn-danger">
+                            <i class="fas fa-sign-out-alt"></i> Sair
                         </button>
                     </div>
-                </div>
-
-                <div class="card">
-                    <h2 class="card-title"><i class="fas fa-info-circle"></i> Como usar</h2>
-                    <p>1. Preencha os dados do sistema no formulário ao lado.</p>
-                    <p>2. Clique em "Adicionar Sistema" para salvar.</p>
-                    <p>3. Para acessar um sistema, clique no botão "Acessar".</p>
-                    <p>4. Use a busca para localizar rapidamente um sistema.</p>
-                    <p>5. Faça backup regular dos seus dados usando a seção de backup.</p>
-                    <p>6. Os dados são armazenados localmente no seu navegador.</p>
+                    
+                    <div class="stats">
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalSystems">0</div>
+                            <div class="stat-label">Sistemas</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-value" id="totalCategories">0</div>
+                            <div class="stat-label">Categorias</div>
+                        </div>
+                    </div>
                 </div>
             </div>
+        </header>
 
-            <div>
-                <div class="search-container">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" class="form-control" placeholder="Buscar sistemas por nome, descrição ou categoria...">
+        <div class="container">
+            <div class="main-content">
+                <div>
+                    <div class="card">
+                        <h2 class="card-title"><i class="fas fa-plus-circle"></i> Adicionar Sistema</h2>
+                        <form id="systemForm">
+                            <div class="form-group">
+                                <label for="systemName">Nome do Sistema *</label>
+                                <input type="text" id="systemName" class="form-control" placeholder="Ex: Sistema de Vendas" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="systemDescription">Descrição</label>
+                                <textarea id="systemDescription" class="form-control" rows="3" placeholder="Descreva a função deste sistema..."></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="systemLink">URL de Acesso *</label>
+                                <input type="url" id="systemLink" class="form-control" placeholder="https://exemplo.com/sistema" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="systemCategory">Categoria</label>
+                                <input type="text" id="systemCategory" class="form-control" placeholder="Ex: Financeiro, Vendas, RH">
+                            </div>
+                            <input type="hidden" id="systemId" value="">
+                            <div class="actions">
+                                <button type="button" id="cancelBtn" class="btn btn-danger" style="display: none;">Cancelar</button>
+                                <button type="submit" id="submitBtn" class="btn btn-primary btn-block">Adicionar Sistema</button>
+                            </div>
+                        </form>
+                    </div>
+
+                    <div class="card backup-section">
+                        <h2 class="card-title"><i class="fas fa-database"></i> Backup dos Dados</h2>
+                        
+                        <div class="backup-actions">
+                            <button id="exportBtn" class="btn btn-success">
+                                <i class="fas fa-file-export"></i> Exportar Dados
+                            </button>
+                            <button id="importBtn" class="btn btn-warning">
+                                <i class="fas fa-file-import"></i> Importar Dados
+                            </button>
+                            <button id="downloadTemplateBtn" class="btn btn-purple">
+                                <i class="fas fa-file-download"></i> Template
+                            </button>
+                        </div>
+                        
+                        <div class="file-input-container">
+                            <label for="importFile" class="file-input-label">
+                                <i class="fas fa-upload"></i>
+                                <span>Clique para selecionar arquivo de backup</span>
+                            </label>
+                            <input type="file" id="importFile" class="file-input" accept=".json">
+                        </div>
+                        
+                        <div class="backup-info">
+                            <h4><i class="fas fa-info-circle"></i> Informações sobre Backup</h4>
+                            <p>• Exporte seus dados para um arquivo JSON para fazer backup</p>
+                            <p>• Importe um arquivo JSON válido para restaurar seus dados</p>
+                            <p>• Faça download do template para ver o formato correto do arquivo</p>
+                            <p>• Os backups são armazenados apenas no seu computador</p>
+                        </div>
+                        
+                        <div class="backup-stats">
+                            <div class="backup-stat">
+                                <i class="fas fa-calendar-alt"></i>
+                                <span>Último backup: <span id="lastBackupDate">Nunca</span></span>
+                            </div>
+                            <div class="backup-stat">
+                                <i class="fas fa-hdd"></i>
+                                <span>Tamanho do banco: <span id="dbSize">0 KB</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="card danger-zone">
+                        <h2 class="card-title"><i class="fas fa-exclamation-triangle"></i> Zona de Perigo</h2>
+                        <p>Esta ação irá remover todos os sistemas permanentemente. Use com cautela.</p>
+                        <div class="actions">
+                            <button id="clearAllBtn" class="btn btn-danger btn-block">
+                                <i class="fas fa-trash-alt"></i> Limpar Todos os Dados
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="card">
+                        <h2 class="card-title"><i class="fas fa-info-circle"></i> Como usar</h2>
+                        <p>1. Preencha os dados do sistema no formulário ao lado.</p>
+                        <p>2. Clique em "Adicionar Sistema" para salvar.</p>
+                        <p>3. Para acessar um sistema, clique no botão "Acessar".</p>
+                        <p>4. Use a busca para localizar rapidamente um sistema.</p>
+                        <p>5. Faça backup regular dos seus dados usando a seção de backup.</p>
+                        <p>6. Os dados são armazenados localmente no seu navegador.</p>
+                    </div>
                 </div>
 
-                <div class="category-filter" id="categoryFilter">
-                    <button class="active" data-category="all">Todos</button>
-                    <!-- Categories will be dynamically added here -->
-                </div>
+                <div>
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" class="form-control" placeholder="Buscar sistemas por nome, descrição ou categoria...">
+                    </div>
 
-                <div id="systemsList">
-                    <!-- Systems will be dynamically added here -->
-                    <div class="empty-state">
-                        <i class="fas fa-cloud-download-alt"></i>
-                        <h3>Nenhum sistema cadastrado</h3>
-                        <p>Adicione seu primeiro sistema usando o formulário ao lado.</p>
+                    <div class="category-filter" id="categoryFilter">
+                        <button class="active" data-category="all">Todos</button>
+                        <!-- Categories will be dynamically added here -->
+                    </div>
+
+                    <div id="systemsList">
+                        <!-- Systems will be dynamically added here -->
+                        <div class="empty-state">
+                            <i class="fas fa-cloud-download-alt"></i>
+                            <h3>Nenhum sistema cadastrado</h3>
+                            <p>Adicione seu primeiro sistema usando o formulário ao lado.</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 
-    <footer>
-        <div class="container">
-            <p>Gestor de Sistemas &copy; <span id="currentYear"></span> | Dados armazenados localmente no seu navegador</p>
-        </div>
-    </footer>
+        <footer>
+            <div class="container">
+                <p>Gestor de Sistemas &copy; <span id="currentYear"></span> | Dados armazenados localmente no seu navegador</p>
+            </div>
+        </footer>
 
-    <!-- Modal para confirmação de importação -->
-    <div class="modal" id="importModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeImportModal">&times;</button>
-            <h2 class="card-title"><i class="fas fa-file-import"></i> Confirmar Importação</h2>
-            <p id="importSummary">Carregando informações do backup...</p>
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" id="replaceData" checked>
-                    Substituir dados existentes
-                </label>
-                <p class="small-text">Se marcado, todos os sistemas atuais serão substituídos. Se desmarcado, os sistemas serão adicionados ao existentes.</p>
-            </div>
-            <div class="actions">
-                <button id="cancelImportBtn" class="btn btn-danger">Cancelar</button>
-                <button id="confirmImportBtn" class="btn btn-success">Confirmar Importação</button>
-            </div>
-        </div>
-    </div>
-
-    <!-- Modal para confirmação de limpeza -->
-    <div class="modal" id="clearModal">
-        <div class="modal-content">
-            <button class="modal-close" id="closeClearModal">&times;</button>
-            <h2 class="card-title"><i class="fas fa-exclamation-triangle"></i> Confirmar Limpeza</h2>
-            <p>Tem certeza que deseja excluir todos os sistemas? Esta ação não pode ser desfeita.</p>
-            <div class="form-group">
-                <label>
-                    <input type="checkbox" id="confirmDelete">
-                    Sim, eu entendo que esta ação é irreversível
-                </label>
-            </div>
-            <div class="actions">
-                <button id="cancelClearBtn" class="btn btn-danger">Cancelar</button>
-                <button id="confirmClearBtn" class="btn btn-danger" disabled>Limpar Todos os Dados</button>
+        <!-- Modal para confirmação de importação -->
+        <div class="modal" id="importModal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeImportModal">&times;</button>
+                <h2 class="card-title"><i class="fas fa-file-import"></i> Confirmar Importação</h2>
+                <p id="importSummary">Carregando informações do backup...</p>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="replaceData" checked>
+                        Substituir dados existentes
+                    </label>
+                    <p class="small-text">Se marcado, todos os sistemas atuais serão substituídos. Se desmarcado, os sistemas serão adicionados ao existentes.</p>
+                </div>
+                <div class="actions">
+                    <button id="cancelImportBtn" class="btn btn-danger">Cancelar</button>
+                    <button id="confirmImportBtn" class="btn btn-success">Confirmar Importação</button>
+                </div>
             </div>
         </div>
-    </div>
 
-    <div class="notification" id="notification"></div>
+        <!-- Modal para confirmação de limpeza -->
+        <div class="modal" id="clearModal">
+            <div class="modal-content">
+                <button class="modal-close" id="closeClearModal">&times;</button>
+                <h2 class="card-title"><i class="fas fa-exclamation-triangle"></i> Confirmar Limpeza</h2>
+                <p>Tem certeza que deseja excluir todos os sistemas? Esta ação não pode ser desfeita.</p>
+                <div class="form-group">
+                    <label>
+                        <input type="checkbox" id="confirmDelete">
+                        Sim, eu entendo que esta ação é irreversível
+                    </label>
+                </div>
+                <div class="actions">
+                    <button id="cancelClearBtn" class="btn btn-danger">Cancelar</button>
+                    <button id="confirmClearBtn" class="btn btn-danger" disabled>Limpar Todos os Dados</button>
+                </div>
+            </div>
+        </div>
+
+        <div class="notification" id="notification"></div>
+    </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             // Set current year in footer
             document.getElementById('currentYear').textContent = new Date().getFullYear();
             
-            // Initialize database
+            // Tab functionality for login/register
+            const tabButtons = document.querySelectorAll('.tab-button');
+            const tabPanes = document.querySelectorAll('.tab-pane');
+            
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const tabId = this.getAttribute('data-tab');
+                    
+                    // Update active tab button
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // Show active tab pane
+                    tabPanes.forEach(pane => pane.classList.remove('active'));
+                    document.getElementById(tabId + 'Form').classList.add('active');
+                });
+            });
+            
+            // Password strength indicator
+            const passwordInput = document.getElementById('registerPassword');
+            const passwordStrength = document.getElementById('passwordStrength');
+            const passwordHint = document.getElementById('passwordHint');
+            
+            passwordInput.addEventListener('input', function() {
+                const password = this.value;
+                let strength = 0;
+                let hint = '';
+                
+                if (password.length >= 8) strength++;
+                if (/[A-Z]/.test(password)) strength++;
+                if (/[0-9]/.test(password)) strength++;
+                if (/[^A-Za-z0-9]/.test(password)) strength++;
+                
+                passwordStrength.className = 'password-strength';
+                
+                if (password.length === 0) {
+                    passwordHint.textContent = '';
+                    return;
+                }
+                
+                if (password.length < 6) {
+                    passwordHint.textContent = 'Senha muito curta (mínimo 6 caracteres)';
+                    passwordHint.style.color = '#e74c3c';
+                } else if (strength < 2) {
+                    passwordStrength.classList.add('weak');
+                    passwordHint.textContent = 'Senha fraca - adicione letras maiúsculas, números ou símbolos';
+                    passwordHint.style.color = '#e74c3c';
+                } else if (strength < 4) {
+                    passwordStrength.classList.add('medium');
+                    passwordHint.textContent = 'Senha média - poderia ser mais forte';
+                    passwordHint.style.color = '#f39c12';
+                } else {
+                    passwordStrength.classList.add('strong');
+                    passwordHint.textContent = 'Senha forte - excelente!';
+                    passwordHint.style.color = '#27ae60';
+                }
+            });
+            
+            // Initialize databases
             let db;
             const dbName = 'GestorSistemasDB';
             const storeName = 'sistemas';
+            const userStoreName = 'usuarios';
             const backupStoreName = 'backupInfo';
             
             // Open or create the database
-            const request = indexedDB.open(dbName, 2); // Version 2 for backup info
+            const request = indexedDB.open(dbName, 3); // Version 3 for user store
             
             request.onerror = function(event) {
                 console.error("Erro ao abrir o banco de dados:", event.target.error);
@@ -774,7 +1198,7 @@
                 db = event.target.result;
                 const oldVersion = event.oldVersion;
                 
-                // Create object store if it doesn't exist
+                // Create object store for systems if it doesn't exist
                 if (oldVersion < 1) {
                     const objectStore = db.createObjectStore(storeName, { keyPath: 'id', autoIncrement: true });
                     
@@ -800,11 +1224,230 @@
                         });
                     }
                 }
+                
+                // Create user store in version 3
+                if (oldVersion < 3) {
+                    if (!db.objectStoreNames.contains(userStoreName)) {
+                        const userStore = db.createObjectStore(userStoreName, { keyPath: 'id', autoIncrement: true });
+                        userStore.createIndex('email', 'email', { unique: true });
+                        userStore.createIndex('name', 'name', { unique: false });
+                        
+                        // Add a default admin user if no users exist
+                        const transaction = event.target.transaction;
+                        const userStoreObj = transaction.objectStore(userStoreName);
+                        
+                        // Check if we should add default user (only in fresh install)
+                        if (oldVersion === 0) {
+                            userStoreObj.add({
+                                name: 'Administrador',
+                                email: 'admin@exemplo.com',
+                                password: 'admin123',
+                                createdAt: new Date().toISOString(),
+                                lastLogin: null
+                            });
+                        }
+                    }
+                }
             };
             
             request.onsuccess = function(event) {
                 db = event.target.result;
                 console.log("Banco de dados inicializado com sucesso");
+                
+                // Check if user is already logged in
+                checkLoginStatus();
+            };
+            
+            // Login form submission
+            const loginForm = document.getElementById('loginForm');
+            loginForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const email = document.getElementById('loginEmail').value.trim();
+                const password = document.getElementById('loginPassword').value.trim();
+                
+                if (!email || !password) {
+                    showNotification("Preencha todos os campos", "error");
+                    return;
+                }
+                
+                loginUser(email, password);
+            });
+            
+            // Register form submission
+            const registerForm = document.getElementById('registerForm');
+            registerForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const name = document.getElementById('registerName').value.trim();
+                const email = document.getElementById('registerEmail').value.trim();
+                const password = document.getElementById('registerPassword').value.trim();
+                const passwordConfirm = document.getElementById('registerPasswordConfirm').value.trim();
+                
+                // Validation
+                if (!name || !email || !password || !passwordConfirm) {
+                    showNotification("Preencha todos os campos", "error");
+                    return;
+                }
+                
+                if (password.length < 6) {
+                    showNotification("A senha deve ter pelo menos 6 caracteres", "error");
+                    return;
+                }
+                
+                if (password !== passwordConfirm) {
+                    showNotification("As senhas não coincidem", "error");
+                    return;
+                }
+                
+                registerUser(name, email, password);
+            });
+            
+            // Logout button
+            const logoutBtn = document.getElementById('logoutBtn');
+            logoutBtn.addEventListener('click', function() {
+                logoutUser();
+            });
+            
+            // Function to check login status
+            function checkLoginStatus() {
+                const loggedInUser = localStorage.getItem('gestorSistemasLoggedInUser');
+                
+                if (loggedInUser) {
+                    const user = JSON.parse(loggedInUser);
+                    showApp(user);
+                } else {
+                    // Show login screen
+                    document.getElementById('loginContainer').style.display = 'flex';
+                    document.getElementById('appContainer').classList.remove('active');
+                }
+            }
+            
+            // Function to login user
+            function loginUser(email, password) {
+                const transaction = db.transaction([userStoreName], 'readonly');
+                const store = transaction.objectStore(userStoreName);
+                const index = store.index('email');
+                const request = index.get(email);
+                
+                request.onsuccess = function(event) {
+                    const user = event.target.result;
+                    
+                    if (!user) {
+                        showNotification("Usuário não encontrado", "error");
+                        return;
+                    }
+                    
+                    if (user.password !== password) {
+                        showNotification("Senha incorreta", "error");
+                        return;
+                    }
+                    
+                    // Update last login
+                    const updateTransaction = db.transaction([userStoreName], 'readwrite');
+                    const updateStore = updateTransaction.objectStore(userStoreName);
+                    user.lastLogin = new Date().toISOString();
+                    updateStore.put(user);
+                    
+                    // Save user to localStorage (without password)
+                    const userToSave = {
+                        id: user.id,
+                        name: user.name,
+                        email: user.email,
+                        createdAt: user.createdAt
+                    };
+                    
+                    localStorage.setItem('gestorSistemasLoggedInUser', JSON.stringify(userToSave));
+                    
+                    // Show app
+                    showApp(userToSave);
+                    
+                    showNotification(`Bem-vindo, ${user.name}!`, "success");
+                };
+                
+                request.onerror = function(event) {
+                    console.error("Erro ao fazer login:", event.target.error);
+                    showNotification("Erro ao fazer login", "error");
+                };
+            }
+            
+            // Function to register user
+            function registerUser(name, email, password) {
+                const transaction = db.transaction([userStoreName], 'readwrite');
+                const store = transaction.objectStore(userStoreName);
+                const index = store.index('email');
+                const checkRequest = index.get(email);
+                
+                checkRequest.onsuccess = function(event) {
+                    const existingUser = event.target.result;
+                    
+                    if (existingUser) {
+                        showNotification("Este e-mail já está cadastrado", "error");
+                        return;
+                    }
+                    
+                    // Create new user
+                    const newUser = {
+                        name: name,
+                        email: email,
+                        password: password,
+                        createdAt: new Date().toISOString(),
+                        lastLogin: new Date().toISOString()
+                    };
+                    
+                    const addRequest = store.add(newUser);
+                    
+                    addRequest.onsuccess = function() {
+                        // Save user to localStorage (without password)
+                        const userToSave = {
+                            id: addRequest.result,
+                            name: name,
+                            email: email,
+                            createdAt: newUser.createdAt
+                        };
+                        
+                        localStorage.setItem('gestorSistemasLoggedInUser', JSON.stringify(userToSave));
+                        
+                        // Show app
+                        showApp(userToSave);
+                        
+                        showNotification("Conta criada com sucesso! Bem-vindo.", "success");
+                        
+                        // Switch to login tab for next time
+                        document.querySelector('.tab-button[data-tab="login"]').click();
+                    };
+                    
+                    addRequest.onerror = function(event) {
+                        console.error("Erro ao cadastrar usuário:", event.target.error);
+                        showNotification("Erro ao cadastrar usuário", "error");
+                    };
+                };
+                
+                checkRequest.onerror = function(event) {
+                    console.error("Erro ao verificar usuário:", event.target.error);
+                    showNotification("Erro ao verificar usuário", "error");
+                };
+            }
+            
+            // Function to show main application
+            function showApp(user) {
+                document.getElementById('loginContainer').style.display = 'none';
+                document.getElementById('appContainer').classList.add('active');
+                
+                // Update user info in header
+                document.getElementById('currentUserName').textContent = user.name;
+                document.getElementById('userNameDisplay').textContent = user.name;
+                document.getElementById('userEmailDisplay').textContent = user.email;
+                
+                // Set user avatar initial
+                const avatar = document.getElementById('userAvatar');
+                const initials = user.name.split(' ').map(n => n[0]).join('').toUpperCase().substring(0, 2);
+                avatar.textContent = initials;
+                
+                // Set random avatar color
+                const colors = ['#3498db', '#e74c3c', '#2ecc71', '#f39c12', '#9b59b6', '#1abc9c'];
+                const randomColor = colors[Math.floor(Math.random() * colors.length)];
+                avatar.style.background = randomColor;
                 
                 // Load systems from database
                 loadSystems();
@@ -817,9 +1460,23 @@
                 
                 // Update database size
                 updateDBSize();
-            };
+                
+                // Reset login form
+                document.getElementById('loginForm').reset();
+                document.getElementById('registerForm').reset();
+            }
             
-            // Form submission
+            // Function to logout user
+            function logoutUser() {
+                if (confirm("Tem certeza que deseja sair?")) {
+                    localStorage.removeItem('gestorSistemasLoggedInUser');
+                    document.getElementById('loginContainer').style.display = 'flex';
+                    document.getElementById('appContainer').classList.remove('active');
+                    showNotification("Você saiu da sua conta", "info");
+                }
+            }
+            
+            // System form submission
             const systemForm = document.getElementById('systemForm');
             const submitBtn = document.getElementById('submitBtn');
             const cancelBtn = document.getElementById('cancelBtn');
@@ -834,7 +1491,8 @@
                     link: document.getElementById('systemLink').value.trim(),
                     category: document.getElementById('systemCategory').value.trim() || 'Geral',
                     createdAt: new Date().toISOString(),
-                    updatedAt: new Date().toISOString()
+                    updatedAt: new Date().toISOString(),
+                    userId: JSON.parse(localStorage.getItem('gestorSistemasLoggedInUser')).id
                 };
                 
                 if (editingId) {
@@ -987,14 +1645,19 @@
                 };
             }
             
-            // Function to load all systems
+            // Function to load all systems for current user
             function loadSystems(filter = '', category = 'all') {
+                const currentUser = JSON.parse(localStorage.getItem('gestorSistemasLoggedInUser'));
+                if (!currentUser) return;
+                
                 const transaction = db.transaction([storeName], 'readonly');
                 const store = transaction.objectStore(storeName);
                 const request = store.getAll();
                 
                 request.onsuccess = function() {
-                    const systems = request.result;
+                    const allSystems = request.result;
+                    // Filter systems by current user
+                    const systems = allSystems.filter(system => system.userId === currentUser.id);
                     displaySystems(systems, filter, category);
                     
                     // Update stats
@@ -1103,12 +1766,17 @@
             
             // Function to load categories for filter
             function loadCategories() {
+                const currentUser = JSON.parse(localStorage.getItem('gestorSistemasLoggedInUser'));
+                if (!currentUser) return;
+                
                 const transaction = db.transaction([storeName], 'readonly');
                 const store = transaction.objectStore(storeName);
                 const request = store.getAll();
                 
                 request.onsuccess = function() {
-                    const systems = request.result;
+                    const allSystems = request.result;
+                    // Filter systems by current user
+                    const systems = allSystems.filter(system => system.userId === currentUser.id);
                     const categories = new Set();
                     
                     systems.forEach(system => {
@@ -1211,20 +1879,26 @@
                 document.getElementById('totalCategories').textContent = categories.size;
             }
             
-            // Function to export data
+            // Function to export data for current user
             function exportData() {
+                const currentUser = JSON.parse(localStorage.getItem('gestorSistemasLoggedInUser'));
+                if (!currentUser) return;
+                
                 const transaction = db.transaction([storeName], 'readonly');
                 const store = transaction.objectStore(storeName);
                 const request = store.getAll();
                 
                 request.onsuccess = function() {
-                    const systems = request.result;
+                    const allSystems = request.result;
+                    // Filter systems by current user
+                    const systems = allSystems.filter(system => system.userId === currentUser.id);
                     
                     // Create export object
                     const exportData = {
                         version: '1.0',
                         exportDate: new Date().toISOString(),
                         system: 'Gestor de Sistemas Backup',
+                        user: currentUser.email,
                         count: systems.length,
                         data: systems
                     };
@@ -1296,6 +1970,7 @@
                     <p>Sistemas no arquivo: ${importData.data.length}</p>
                     <p>Data do backup: ${new Date(importData.exportDate || Date.now()).toLocaleDateString('pt-BR')}</p>
                     <p>Versão: ${importData.version || 'Desconhecida'}</p>
+                    <p>Usuário original: ${importData.user || 'Desconhecido'}</p>
                 `;
                 
                 importModal.classList.add('show');
@@ -1310,16 +1985,25 @@
             
             // Function to import data from file
             function importDataFromFile(systemsData, replaceExisting) {
+                const currentUser = JSON.parse(localStorage.getItem('gestorSistemasLoggedInUser'));
+                if (!currentUser) return;
+                
+                // Update userId for all imported systems to current user
+                const updatedSystemsData = systemsData.map(system => ({
+                    ...system,
+                    userId: currentUser.id
+                }));
+                
                 const transaction = db.transaction([storeName], 'readwrite');
                 const store = transaction.objectStore(storeName);
                 
                 if (replaceExisting) {
-                    // Clear all existing data first
-                    const clearRequest = store.clear();
+                    // Clear all existing data for current user first
+                    const clearRequest = store.clear(); // This clears all, not just user's
                     
                     clearRequest.onsuccess = function() {
                         // Add all systems from import
-                        addSystemsBatch(systemsData, 0);
+                        addSystemsBatch(updatedSystemsData, 0);
                     };
                     
                     clearRequest.onerror = function(event) {
@@ -1328,7 +2012,7 @@
                     };
                 } else {
                     // Add to existing data
-                    addSystemsBatch(systemsData, 0);
+                    addSystemsBatch(updatedSystemsData, 0);
                 }
             }
             
@@ -1375,10 +2059,13 @@
             
             // Function to download template
             function downloadTemplate() {
+                const currentUser = JSON.parse(localStorage.getItem('gestorSistemasLoggedInUser'));
+                
                 const templateData = {
                     version: '1.0',
                     exportDate: new Date().toISOString(),
                     system: 'Gestor de Sistemas Backup',
+                    user: currentUser ? currentUser.email : 'exemplo@email.com',
                     count: 2,
                     data: [
                         {
@@ -1387,7 +2074,8 @@
                             link: "https://exemplo.com/sistema1",
                             category: "Exemplo",
                             createdAt: new Date().toISOString(),
-                            updatedAt: new Date().toISOString()
+                            updatedAt: new Date().toISOString(),
+                            userId: currentUser ? currentUser.id : 1
                         },
                         {
                             name: "Sistema de Exemplo 2",
@@ -1395,7 +2083,8 @@
                             link: "https://exemplo.com/sistema2",
                             category: "Teste",
                             createdAt: new Date().toISOString(),
-                            updatedAt: new Date().toISOString()
+                            updatedAt: new Date().toISOString(),
+                            userId: currentUser ? currentUser.id : 1
                         }
                     ]
                 };
@@ -1419,12 +2108,14 @@
                 clearModal.classList.add('show');
             }
             
-            // Function to clear all data
+            // Function to clear all data for current user
             function clearAllData() {
+                const currentUser = JSON.parse(localStorage.getItem('gestorSistemasLoggedInUser'));
+                if (!currentUser) return;
+                
                 const transaction = db.transaction([storeName], 'readwrite');
                 const store = transaction.objectStore(storeName);
-                
-                const request = store.clear();
+                const request = store.clear(); // This clears all data, not just user's
                 
                 request.onsuccess = function() {
                     console.log("Todos os dados foram limpos");
@@ -1488,12 +2179,17 @@
             
             // Function to update database size
             function updateDBSize() {
+                const currentUser = JSON.parse(localStorage.getItem('gestorSistemasLoggedInUser'));
+                if (!currentUser) return;
+                
                 const transaction = db.transaction([storeName], 'readonly');
                 const store = transaction.objectStore(storeName);
                 const request = store.getAll();
                 
                 request.onsuccess = function() {
-                    const systems = request.result;
+                    const allSystems = request.result;
+                    // Filter systems by current user
+                    const systems = allSystems.filter(system => system.userId === currentUser.id);
                     const jsonData = JSON.stringify(systems);
                     const sizeInBytes = new Blob([jsonData]).size;
                     const sizeInKB = (sizeInBytes / 1024).toFixed(2);
@@ -1505,7 +2201,10 @@
             // Function to show notification
             function showNotification(message, type = 'success') {
                 const notification = document.getElementById('notification');
-                notification.textContent = message;
+                notification.innerHTML = `
+                    <i class="fas fa-${type === 'success' ? 'check-circle' : type === 'error' ? 'exclamation-circle' : type === 'warning' ? 'exclamation-triangle' : 'info-circle'}"></i>
+                    <span>${message}</span>
+                `;
                 notification.className = `notification ${type}`;
                 
                 // Show notification
@@ -1537,14 +2236,21 @@
                 });
             });
             
-            // Add some sample data if database is empty
+            // Add some sample data if database is empty for current user
             function addSampleDataIfEmpty() {
+                const currentUser = JSON.parse(localStorage.getItem('gestorSistemasLoggedInUser'));
+                if (!currentUser) return;
+                
                 const transaction = db.transaction([storeName], 'readonly');
                 const store = transaction.objectStore(storeName);
-                const countRequest = store.count();
+                const request = store.getAll();
                 
-                countRequest.onsuccess = function() {
-                    if (countRequest.result === 0) {
+                request.onsuccess = function() {
+                    const allSystems = request.result;
+                    // Filter systems by current user
+                    const userSystems = allSystems.filter(system => system.userId === currentUser.id);
+                    
+                    if (userSystems.length === 0) {
                         const sampleSystems = [
                             {
                                 name: "Sistema de Vendas",
@@ -1552,7 +2258,8 @@
                                 link: "https://exemplo.com/vendas",
                                 category: "Vendas",
                                 createdAt: new Date().toISOString(),
-                                updatedAt: new Date().toISOString()
+                                updatedAt: new Date().toISOString(),
+                                userId: currentUser.id
                             },
                             {
                                 name: "Controle Financeiro",
@@ -1560,7 +2267,8 @@
                                 link: "https://exemplo.com/financeiro",
                                 category: "Financeiro",
                                 createdAt: new Date().toISOString(),
-                                updatedAt: new Date().toISOString()
+                                updatedAt: new Date().toISOString(),
+                                userId: currentUser.id
                             },
                             {
                                 name: "Recursos Humanos",
@@ -1568,7 +2276,8 @@
                                 link: "https://exemplo.com/rh",
                                 category: "RH",
                                 createdAt: new Date().toISOString(),
-                                updatedAt: new Date().toISOString()
+                                updatedAt: new Date().toISOString(),
+                                userId: currentUser.id
                             }
                         ];
                         
@@ -1582,7 +2291,7 @@
                 };
             }
             
-            // Call this function after database initialization
+            // Call this function after user logs in
             setTimeout(addSampleDataIfEmpty, 1000);
         });
     </script>
