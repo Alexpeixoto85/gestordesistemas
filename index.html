@@ -24,6 +24,7 @@
             --gradient-primary: linear-gradient(135deg, var(--primary-color), #34495e);
             --gradient-secondary: linear-gradient(135deg, var(--secondary-color), #2980b9);
             --gradient-success: linear-gradient(135deg, var(--success-color), #219653);
+            --sidebar-width: 300px;
         }
 
         * {
@@ -43,7 +44,7 @@
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 0 15px;
         }
 
         /* Login Container */
@@ -61,7 +62,7 @@
             box-shadow: var(--shadow-lg);
             width: 100%;
             max-width: 450px;
-            padding: 40px;
+            padding: 30px;
             text-align: center;
             animation: fadeIn 0.5s ease;
         }
@@ -72,38 +73,38 @@
         }
 
         .login-header {
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .login-header h1 {
             color: var(--primary-color);
-            font-size: 2.2rem;
+            font-size: 1.8rem;
             margin-bottom: 10px;
         }
 
         .login-header p {
             color: #7f8c8d;
-            font-size: 1rem;
+            font-size: 0.95rem;
         }
 
         .login-icon {
-            font-size: 4rem;
+            font-size: 3.5rem;
             color: var(--secondary-color);
-            margin-bottom: 20px;
+            margin-bottom: 15px;
         }
 
         .tabs {
             display: flex;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
             border-bottom: 1px solid #eee;
         }
 
         .tab-button {
             flex: 1;
-            padding: 15px;
+            padding: 12px;
             background: none;
             border: none;
-            font-size: 1.1rem;
+            font-size: 1rem;
             font-weight: 600;
             color: #7f8c8d;
             cursor: pointer;
@@ -129,45 +130,6 @@
             animation: fadeIn 0.5s ease;
         }
 
-        .user-info {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            background: rgba(255, 255, 255, 0.2);
-            padding: 10px 20px;
-            border-radius: 30px;
-            backdrop-filter: blur(10px);
-            border: 1px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .user-avatar {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            background: var(--gradient-secondary);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 1.2rem;
-        }
-
-        .user-details {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .user-name {
-            font-weight: 600;
-            font-size: 1rem;
-        }
-
-        .user-email {
-            font-size: 0.85rem;
-            opacity: 0.8;
-        }
-
         /* Main App Styles (shown after login) */
         .app-container {
             display: none;
@@ -177,12 +139,13 @@
             display: block;
         }
 
+        /* Header Styles */
         header {
             background: var(--gradient-primary);
             color: white;
-            padding: 20px 0;
+            padding: 15px 0;
             box-shadow: var(--shadow);
-            margin-bottom: 30px;
+            margin-bottom: 20px;
             position: sticky;
             top: 0;
             z-index: 100;
@@ -193,13 +156,13 @@
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            gap: 20px;
+            gap: 15px;
         }
 
         .header-left {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
 
         .logo {
@@ -209,28 +172,102 @@
         }
 
         .logo-icon {
-            font-size: 2rem;
+            font-size: 1.8rem;
             color: var(--accent-color);
         }
 
-        h1 {
-            font-size: 2rem;
-            margin-bottom: 5px;
+        .header-title h1 {
+            font-size: 1.5rem;
+            margin-bottom: 3px;
         }
 
         .subtitle {
-            font-size: 0.95rem;
+            font-size: 0.85rem;
             opacity: 0.9;
             font-weight: 300;
         }
 
+        /* User Info & Actions */
+        .header-actions {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .user-info {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: rgba(255, 255, 255, 0.2);
+            padding: 8px 15px;
+            border-radius: 30px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .user-avatar {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: var(--gradient-secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+        }
+
+        .user-details {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .user-name {
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
+        .user-email {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        .action-buttons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn-icon {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255, 255, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .btn-icon:hover {
+            background: rgba(255, 255, 255, 0.3);
+            transform: translateY(-2px);
+        }
+
+        /* Stats */
         .stats {
             display: flex;
-            gap: 25px;
+            gap: 20px;
             background: rgba(255, 255, 255, 0.15);
-            padding: 15px 25px;
+            padding: 12px 20px;
             border-radius: var(--border-radius);
             backdrop-filter: blur(5px);
+            margin-top: 10px;
+            width: 100%;
+            justify-content: space-around;
         }
 
         .stat-item {
@@ -238,41 +275,101 @@
         }
 
         .stat-value {
-            font-size: 2rem;
+            font-size: 1.5rem;
             font-weight: 700;
         }
 
         .stat-label {
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             opacity: 0.9;
         }
 
+        /* Main Content */
         .main-content {
-            display: grid;
-            grid-template-columns: 1fr 2fr;
-            gap: 30px;
-            margin-bottom: 40px;
+            display: block;
+            margin-bottom: 30px;
         }
 
-        @media (max-width: 992px) {
-            .main-content {
-                grid-template-columns: 1fr;
-            }
+        /* Add System Button */
+        .add-system-btn-container {
+            text-align: center;
+            margin-bottom: 25px;
         }
 
-        .card {
+        /* Systems List */
+        .systems-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+
+        .search-container {
+            position: relative;
+            flex: 1;
+            min-width: 250px;
+        }
+
+        .search-container i {
+            position: absolute;
+            left: 15px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #7f8c8d;
+        }
+
+        .search-container input {
+            padding-left: 45px;
+            width: 100%;
+        }
+
+        .category-filter {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+
+        .category-filter button {
+            padding: 8px 15px;
+            border: 1px solid #ddd;
+            background: white;
+            border-radius: 30px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            font-size: 0.9rem;
+        }
+
+        .category-filter button.active {
+            background: var(--secondary-color);
+            color: white;
+            border-color: var(--secondary-color);
+            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
+        }
+
+        .category-filter button:hover:not(.active) {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+            transform: translateY(-2px);
+        }
+
+        /* System Card */
+        .system-card {
             background: white;
             border-radius: var(--border-radius);
             box-shadow: var(--shadow);
-            padding: 30px;
-            margin-bottom: 25px;
+            padding: 20px;
+            margin-bottom: 15px;
+            border-left: 5px solid var(--secondary-color);
             transition: var(--transition);
-            border: 1px solid rgba(0, 0, 0, 0.05);
             position: relative;
             overflow: hidden;
         }
 
-        .card:before {
+        .system-card:before {
             content: '';
             position: absolute;
             top: 0;
@@ -280,40 +377,258 @@
             width: 100%;
             height: 5px;
             background: var(--gradient-secondary);
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
         }
 
-        .card:hover {
-            box-shadow: var(--shadow-lg);
+        .system-card:hover:before {
+            transform: scaleX(1);
+        }
+
+        .system-card:hover {
             transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
         }
 
-        .card-title {
-            font-size: 1.5rem;
-            margin-bottom: 20px;
+        .system-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 12px;
+        }
+
+        .system-name {
+            font-size: 1.2rem;
+            font-weight: 700;
             color: var(--primary-color);
+            margin-bottom: 5px;
+            word-break: break-word;
+        }
+
+        .system-category {
+            display: inline-block;
+            background: #e8f4fc;
+            color: var(--secondary-color);
+            padding: 5px 10px;
+            border-radius: 30px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            margin-top: 3px;
+        }
+
+        .system-description {
+            color: #555;
+            margin-bottom: 15px;
+            line-height: 1.5;
+            padding: 10px 0;
+            border-top: 1px solid #eee;
+            border-bottom: 1px solid #eee;
+            word-break: break-word;
+        }
+
+        .system-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent-color);
+            color: white;
+            padding: 10px 20px;
+            border-radius: var(--border-radius);
+            text-decoration: none;
+            font-weight: 600;
+            transition: var(--transition);
+            box-shadow: 0 4px 6px rgba(26, 188, 156, 0.2);
+            font-size: 0.9rem;
+        }
+
+        .system-link:hover {
+            background: #16a085;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 12px rgba(26, 188, 156, 0.3);
+        }
+
+        .system-actions {
+            display: flex;
+            gap: 8px;
+            margin-top: 15px;
+        }
+
+        /* Settings Panel */
+        .settings-panel {
+            position: fixed;
+            top: 0;
+            right: -100%;
+            width: 100%;
+            max-width: 400px;
+            height: 100vh;
+            background: white;
+            box-shadow: -5px 0 15px rgba(0, 0, 0, 0.1);
+            z-index: 1000;
+            transition: right 0.3s ease;
+            overflow-y: auto;
+            padding: 20px;
+        }
+
+        .settings-panel.active {
+            right: 0;
+        }
+
+        .settings-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+            display: none;
+        }
+
+        .settings-overlay.active {
+            display: block;
+        }
+
+        .settings-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .settings-header h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
             display: flex;
             align-items: center;
             gap: 10px;
         }
 
-        .card-title i {
+        .close-settings {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: #7f8c8d;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .close-settings:hover {
+            color: var(--danger-color);
+        }
+
+        /* Settings Cards */
+        .settings-section {
+            margin-bottom: 25px;
+        }
+
+        .settings-card {
+            background: #f9f9f9;
+            border-radius: var(--border-radius);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 4px solid var(--secondary-color);
+        }
+
+        .settings-card h3 {
+            color: var(--primary-color);
+            font-size: 1.2rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .settings-card h3 i {
             color: var(--secondary-color);
         }
 
-        .form-group {
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.6);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+            animation: fadeIn 0.3s ease;
+            padding: 20px;
+        }
+
+        .modal.show {
+            display: flex;
+        }
+
+        .modal-content {
+            background: white;
+            border-radius: var(--border-radius);
+            width: 100%;
+            max-width: 500px;
+            padding: 25px;
+            position: relative;
+            box-shadow: var(--shadow-lg);
+            animation: modalSlideIn 0.4s ease;
+            max-height: 90vh;
+            overflow-y: auto;
+        }
+
+        @keyframes modalSlideIn {
+            from { opacity: 0; transform: translateY(-50px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
             margin-bottom: 20px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .modal-header h2 {
+            color: var(--primary-color);
+            font-size: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #7f8c8d;
+            transition: var(--transition);
+        }
+
+        .modal-close:hover {
+            color: var(--danger-color);
+        }
+
+        /* Form Styles */
+        .form-group {
+            margin-bottom: 18px;
         }
 
         label {
             display: block;
-            margin-bottom: 8px;
+            margin-bottom: 6px;
             font-weight: 600;
             color: var(--dark-color);
+            font-size: 0.95rem;
         }
 
         .form-control {
             width: 100%;
-            padding: 14px 15px;
+            padding: 12px 15px;
             border: 1px solid #ddd;
             border-radius: var(--border-radius);
             font-size: 1rem;
@@ -328,12 +643,18 @@
             background: white;
         }
 
+        textarea.form-control {
+            resize: vertical;
+            min-height: 100px;
+        }
+
+        /* Button Styles */
         .btn {
             display: inline-flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            padding: 14px 25px;
+            padding: 12px 20px;
             border: none;
             border-radius: var(--border-radius);
             font-size: 1rem;
@@ -401,240 +722,38 @@
         }
 
         .btn-sm {
-            padding: 10px 15px;
-            font-size: 0.9rem;
-        }
-
-        .actions {
-            display: flex;
-            gap: 10px;
-            justify-content: flex-end;
-            margin-top: 20px;
-        }
-
-        .search-container {
-            margin-bottom: 25px;
-            position: relative;
-        }
-
-        .search-container i {
-            position: absolute;
-            left: 15px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #7f8c8d;
-        }
-
-        .search-container input {
-            padding-left: 45px;
-        }
-
-        .system-card {
-            background: white;
-            border-radius: var(--border-radius);
-            box-shadow: var(--shadow);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-left: 5px solid var(--secondary-color);
-            transition: var(--transition);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .system-card:before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 5px;
-            background: var(--gradient-secondary);
-            transform: scaleX(0);
-            transform-origin: left;
-            transition: transform 0.5s ease;
-        }
-
-        .system-card:hover:before {
-            transform: scaleX(1);
-        }
-
-        .system-card:hover {
-            transform: translateY(-5px);
-            box-shadow: var(--shadow-lg);
-        }
-
-        .system-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            margin-bottom: 15px;
-        }
-
-        .system-name {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--primary-color);
-            margin-bottom: 5px;
-        }
-
-        .system-category {
-            display: inline-block;
-            background: #e8f4fc;
-            color: var(--secondary-color);
-            padding: 6px 12px;
-            border-radius: 30px;
+            padding: 8px 12px;
             font-size: 0.85rem;
-            font-weight: 600;
-            margin-top: 5px;
         }
 
-        .system-description {
-            color: #555;
-            margin-bottom: 20px;
-            line-height: 1.5;
-            padding: 10px 0;
-            border-top: 1px solid #eee;
-            border-bottom: 1px solid #eee;
-        }
-
-        .system-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            background: var(--accent-color);
-            color: white;
-            padding: 12px 24px;
-            border-radius: var(--border-radius);
-            text-decoration: none;
-            font-weight: 600;
-            transition: var(--transition);
-            box-shadow: 0 4px 6px rgba(26, 188, 156, 0.2);
-        }
-
-        .system-link:hover {
-            background: #16a085;
-            transform: translateY(-3px);
-            box-shadow: 0 6px 12px rgba(26, 188, 156, 0.3);
-        }
-
-        .system-actions {
-            display: flex;
-            gap: 10px;
-            margin-top: 20px;
-        }
-
+        /* Empty State */
         .empty-state {
             text-align: center;
-            padding: 60px 20px;
+            padding: 50px 15px;
             color: #7f8c8d;
         }
 
         .empty-state i {
-            font-size: 5rem;
-            margin-bottom: 20px;
+            font-size: 4rem;
+            margin-bottom: 15px;
             color: #bdc3c7;
         }
 
         .empty-state h3 {
-            margin-bottom: 15px;
-            font-size: 1.8rem;
-        }
-
-        .category-filter {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-            margin-bottom: 25px;
-        }
-
-        .category-filter button {
-            padding: 10px 18px;
-            border: 1px solid #ddd;
-            background: white;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: var(--transition);
-            font-weight: 500;
-        }
-
-        .category-filter button.active {
-            background: var(--secondary-color);
-            color: white;
-            border-color: var(--secondary-color);
-            box-shadow: 0 4px 6px rgba(52, 152, 219, 0.2);
-        }
-
-        .category-filter button:hover:not(.active) {
-            border-color: var(--secondary-color);
-            color: var(--secondary-color);
-            transform: translateY(-2px);
-        }
-
-        .modal {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-            z-index: 1000;
-            align-items: center;
-            justify-content: center;
-            animation: fadeIn 0.3s ease;
-        }
-
-        .modal.show {
-            display: flex;
-        }
-
-        .modal-content {
-            background: white;
-            border-radius: var(--border-radius);
-            width: 90%;
-            max-width: 500px;
-            padding: 30px;
-            position: relative;
-            box-shadow: var(--shadow-lg);
-            animation: modalSlideIn 0.4s ease;
-        }
-
-        @keyframes modalSlideIn {
-            from { opacity: 0; transform: translateY(-50px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .modal-close {
-            position: absolute;
-            top: 15px;
-            right: 15px;
-            background: none;
-            border: none;
+            margin-bottom: 12px;
             font-size: 1.5rem;
-            cursor: pointer;
-            color: #7f8c8d;
-            transition: var(--transition);
         }
 
-        .modal-close:hover {
-            color: var(--danger-color);
+        .empty-state p {
+            font-size: 0.95rem;
         }
 
-        footer {
-            text-align: center;
-            margin-top: 40px;
-            padding-top: 20px;
-            border-top: 1px solid #ddd;
-            color: #7f8c8d;
-            font-size: 0.9rem;
-            padding-bottom: 20px;
-        }
-
+        /* Notification */
         .notification {
             position: fixed;
             top: 20px;
             right: 20px;
-            padding: 18px 25px;
+            padding: 15px 20px;
             border-radius: var(--border-radius);
             color: white;
             font-weight: 600;
@@ -646,7 +765,7 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            max-width: 400px;
+            max-width: 350px;
         }
 
         .notification.show {
@@ -670,32 +789,12 @@
             background-color: #17a2b8;
         }
 
-        .backup-section {
-            margin-top: 30px;
-        }
-
+        /* Backup Section */
         .backup-actions {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 15px;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 12px;
             margin-top: 15px;
-        }
-
-        .backup-info {
-            background-color: #f8f9fa;
-            border-left: 4px solid var(--secondary-color);
-            padding: 20px;
-            margin-top: 20px;
-            border-radius: var(--border-radius);
-            font-size: 0.95rem;
-        }
-
-        .backup-info h4 {
-            margin-bottom: 10px;
-            color: var(--primary-color);
-            display: flex;
-            align-items: center;
-            gap: 10px;
         }
 
         .file-input-container {
@@ -708,12 +807,14 @@
             align-items: center;
             justify-content: center;
             gap: 10px;
-            padding: 20px;
+            padding: 15px;
             background-color: #f8f9fa;
             border: 2px dashed #ced4da;
             border-radius: var(--border-radius);
             cursor: pointer;
             transition: var(--transition);
+            text-align: center;
+            font-size: 0.9rem;
         }
 
         .file-input-label:hover {
@@ -725,46 +826,64 @@
             display: none;
         }
 
+        .backup-info {
+            background-color: #f8f9fa;
+            border-left: 4px solid var(--secondary-color);
+            padding: 15px;
+            margin-top: 15px;
+            border-radius: var(--border-radius);
+            font-size: 0.9rem;
+        }
+
+        .backup-info h4 {
+            margin-bottom: 10px;
+            color: var(--primary-color);
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 1rem;
+        }
+
+        .backup-info p {
+            margin-bottom: 8px;
+        }
+
         .backup-stats {
             display: flex;
-            gap: 20px;
-            margin-top: 20px;
+            gap: 15px;
+            margin-top: 15px;
             flex-wrap: wrap;
         }
 
         .backup-stat {
             background: #f8f9fa;
-            padding: 15px;
+            padding: 12px;
             border-radius: var(--border-radius);
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 0.95rem;
+            gap: 8px;
+            font-size: 0.9rem;
             flex: 1;
-            min-width: 200px;
+            min-width: 150px;
         }
 
         .backup-stat i {
             color: var(--secondary-color);
-            font-size: 1.2rem;
+            font-size: 1.1rem;
         }
 
+        /* Danger Zone */
         .danger-zone {
             border: 2px solid var(--danger-color);
             background-color: #fff5f5;
-            margin-top: 30px;
         }
 
-        .danger-zone .card-title {
+        .danger-zone h3 {
             color: var(--danger-color);
         }
 
-        .danger-zone .card-title i {
+        .danger-zone h3 i {
             color: var(--danger-color);
-        }
-
-        .danger-zone .btn {
-            background-color: var(--danger-color);
         }
 
         .password-strength {
@@ -802,11 +921,23 @@
             margin-top: 5px;
         }
 
+        /* Footer */
+        footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+            color: #7f8c8d;
+            font-size: 0.85rem;
+            padding-bottom: 20px;
+        }
+
+        /* Responsive Styles */
         @media (max-width: 768px) {
             .header-content {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 20px;
+                gap: 15px;
             }
             
             .header-left {
@@ -814,9 +945,18 @@
                 justify-content: space-between;
             }
             
-            .stats {
+            .header-actions {
                 width: 100%;
                 justify-content: space-between;
+            }
+            
+            .user-details {
+                display: none;
+            }
+            
+            .stats {
+                width: 100%;
+                justify-content: space-around;
             }
             
             .system-header {
@@ -832,12 +972,47 @@
                 grid-template-columns: 1fr;
             }
             
-            .user-info {
-                padding: 8px 15px;
+            .login-card {
+                padding: 25px 20px;
             }
             
-            .login-card {
-                padding: 30px 20px;
+            .modal-content {
+                padding: 20px 15px;
+            }
+            
+            .settings-panel {
+                max-width: 100%;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header-title h1 {
+                font-size: 1.3rem;
+            }
+            
+            .logo-icon {
+                font-size: 1.5rem;
+            }
+            
+            .system-name {
+                font-size: 1.1rem;
+            }
+            
+            .btn {
+                padding: 10px 15px;
+                font-size: 0.9rem;
+            }
+            
+            .search-container {
+                min-width: 100%;
+            }
+            
+            .stats {
+                padding: 10px;
+            }
+            
+            .stat-value {
+                font-size: 1.3rem;
             }
         }
     </style>
@@ -917,24 +1092,32 @@
                     <div class="header-left">
                         <div class="logo">
                             <i class="fas fa-link logo-icon"></i>
-                            <div>
+                            <div class="header-title">
                                 <h1>Gestor de Sistemas</h1>
                                 <p class="subtitle">Bem-vindo, <span id="currentUserName"></span></p>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="user-info" id="userInfo">
-                        <div class="user-avatar" id="userAvatar">
-                            U
+                    <div class="header-actions">
+                        <div class="user-info" id="userInfo">
+                            <div class="user-avatar" id="userAvatar">
+                                U
+                            </div>
+                            <div class="user-details">
+                                <div class="user-name" id="userNameDisplay"></div>
+                                <div class="user-email" id="userEmailDisplay"></div>
+                            </div>
                         </div>
-                        <div class="user-details">
-                            <div class="user-name" id="userNameDisplay"></div>
-                            <div class="user-email" id="userEmailDisplay"></div>
+                        
+                        <div class="action-buttons">
+                            <button id="settingsBtn" class="btn-icon" title="Configurações">
+                                <i class="fas fa-cog"></i>
+                            </button>
+                            <button id="logoutBtn" class="btn-icon" title="Sair">
+                                <i class="fas fa-sign-out-alt"></i>
+                            </button>
                         </div>
-                        <button id="logoutBtn" class="btn btn-sm btn-danger">
-                            <i class="fas fa-sign-out-alt"></i> Sair
-                        </button>
                     </div>
                     
                     <div class="stats">
@@ -953,43 +1136,64 @@
 
         <div class="container">
             <div class="main-content">
-                <div>
-                    <div class="card">
-                        <h2 class="card-title"><i class="fas fa-plus-circle"></i> Adicionar Sistema</h2>
-                        <form id="systemForm">
-                            <div class="form-group">
-                                <label for="systemName">Nome do Sistema *</label>
-                                <input type="text" id="systemName" class="form-control" placeholder="Ex: Sistema de Vendas" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="systemDescription">Descrição</label>
-                                <textarea id="systemDescription" class="form-control" rows="3" placeholder="Descreva a função deste sistema..."></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="systemLink">URL de Acesso *</label>
-                                <input type="url" id="systemLink" class="form-control" placeholder="https://exemplo.com/sistema" required>
-                            </div>
-                            <div class="form-group">
-                                <label for="systemCategory">Categoria</label>
-                                <input type="text" id="systemCategory" class="form-control" placeholder="Ex: Financeiro, Vendas, RH">
-                            </div>
-                            <input type="hidden" id="systemId" value="">
-                            <div class="actions">
-                                <button type="button" id="cancelBtn" class="btn btn-danger" style="display: none;">Cancelar</button>
-                                <button type="submit" id="submitBtn" class="btn btn-primary btn-block">Adicionar Sistema</button>
-                            </div>
-                        </form>
+                <!-- Add System Button -->
+                <div class="add-system-btn-container">
+                    <button id="addSystemBtn" class="btn btn-primary">
+                        <i class="fas fa-plus-circle"></i> Adicionar Novo Sistema
+                    </button>
+                </div>
+                
+                <!-- Systems List Header -->
+                <div class="systems-header">
+                    <div class="search-container">
+                        <i class="fas fa-search"></i>
+                        <input type="text" id="searchInput" class="form-control" placeholder="Buscar sistemas...">
                     </div>
+                    
+                    <div class="category-filter" id="categoryFilter">
+                        <button class="active" data-category="all">Todos</button>
+                        <!-- Categories will be dynamically added here -->
+                    </div>
+                </div>
+                
+                <!-- Systems List -->
+                <div id="systemsList">
+                    <!-- Systems will be dynamically added here -->
+                    <div class="empty-state">
+                        <i class="fas fa-cloud-download-alt"></i>
+                        <h3>Nenhum sistema cadastrado</h3>
+                        <p>Adicione seu primeiro sistema clicando no botão acima.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
 
-                    <div class="card backup-section">
-                        <h2 class="card-title"><i class="fas fa-database"></i> Backup dos Dados</h2>
+        <footer>
+            <div class="container">
+                <p>Gestor de Sistemas &copy; <span id="currentYear"></span> | Dados armazenados localmente no seu navegador</p>
+            </div>
+        </footer>
+
+        <!-- Settings Panel -->
+        <div class="settings-overlay" id="settingsOverlay"></div>
+        <div class="settings-panel" id="settingsPanel">
+            <div class="settings-header">
+                <h2><i class="fas fa-cog"></i> Configurações</h2>
+                <button class="close-settings" id="closeSettingsBtn">&times;</button>
+            </div>
+            
+            <div class="settings-sections">
+                <!-- Backup Section -->
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <h3><i class="fas fa-database"></i> Backup dos Dados</h3>
                         
                         <div class="backup-actions">
                             <button id="exportBtn" class="btn btn-success">
-                                <i class="fas fa-file-export"></i> Exportar Dados
+                                <i class="fas fa-file-export"></i> Exportar
                             </button>
                             <button id="importBtn" class="btn btn-warning">
-                                <i class="fas fa-file-import"></i> Importar Dados
+                                <i class="fas fa-file-import"></i> Importar
                             </button>
                             <button id="downloadTemplateBtn" class="btn btn-purple">
                                 <i class="fas fa-file-download"></i> Template
@@ -1008,7 +1212,7 @@
                             <h4><i class="fas fa-info-circle"></i> Informações sobre Backup</h4>
                             <p>• Exporte seus dados para um arquivo JSON para fazer backup</p>
                             <p>• Importe um arquivo JSON válido para restaurar seus dados</p>
-                            <p>• Faça download do template para ver o formato correto do arquivo</p>
+                            <p>• Faça download do template para ver o formato correto</p>
                             <p>• Os backups são armazenados apenas no seu computador</p>
                         </div>
                         
@@ -1023,9 +1227,12 @@
                             </div>
                         </div>
                     </div>
-                    
-                    <div class="card danger-zone">
-                        <h2 class="card-title"><i class="fas fa-exclamation-triangle"></i> Zona de Perigo</h2>
+                </div>
+                
+                <!-- Danger Zone -->
+                <div class="settings-section">
+                    <div class="settings-card danger-zone">
+                        <h3><i class="fas fa-exclamation-triangle"></i> Zona de Perigo</h3>
                         <p>Esta ação irá remover todos os sistemas permanentemente. Use com cautela.</p>
                         <div class="actions">
                             <button id="clearAllBtn" class="btn btn-danger btn-block">
@@ -1033,52 +1240,65 @@
                             </button>
                         </div>
                     </div>
-
-                    <div class="card">
-                        <h2 class="card-title"><i class="fas fa-info-circle"></i> Como usar</h2>
-                        <p>1. Preencha os dados do sistema no formulário ao lado.</p>
-                        <p>2. Clique em "Adicionar Sistema" para salvar.</p>
+                </div>
+                
+                <!-- How to Use -->
+                <div class="settings-section">
+                    <div class="settings-card">
+                        <h3><i class="fas fa-info-circle"></i> Como usar</h3>
+                        <p>1. Clique em "Adicionar Novo Sistema" para adicionar um sistema.</p>
+                        <p>2. Para editar ou excluir, use os botões em cada sistema.</p>
                         <p>3. Para acessar um sistema, clique no botão "Acessar".</p>
                         <p>4. Use a busca para localizar rapidamente um sistema.</p>
-                        <p>5. Faça backup regular dos seus dados usando a seção de backup.</p>
+                        <p>5. Faça backup regular dos seus dados nas configurações.</p>
                         <p>6. Os dados são armazenados localmente no seu navegador.</p>
-                    </div>
-                </div>
-
-                <div>
-                    <div class="search-container">
-                        <i class="fas fa-search"></i>
-                        <input type="text" id="searchInput" class="form-control" placeholder="Buscar sistemas por nome, descrição ou categoria...">
-                    </div>
-
-                    <div class="category-filter" id="categoryFilter">
-                        <button class="active" data-category="all">Todos</button>
-                        <!-- Categories will be dynamically added here -->
-                    </div>
-
-                    <div id="systemsList">
-                        <!-- Systems will be dynamically added here -->
-                        <div class="empty-state">
-                            <i class="fas fa-cloud-download-alt"></i>
-                            <h3>Nenhum sistema cadastrado</h3>
-                            <p>Adicione seu primeiro sistema usando o formulário ao lado.</p>
-                        </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <footer>
-            <div class="container">
-                <p>Gestor de Sistemas &copy; <span id="currentYear"></span> | Dados armazenados localmente no seu navegador</p>
+        <!-- Modal for Add/Edit System -->
+        <div class="modal" id="systemModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-plus-circle"></i> <span id="modalTitle">Adicionar Sistema</span></h2>
+                    <button class="modal-close" id="closeSystemModal">&times;</button>
+                </div>
+                
+                <form id="systemForm">
+                    <div class="form-group">
+                        <label for="systemName">Nome do Sistema *</label>
+                        <input type="text" id="systemName" class="form-control" placeholder="Ex: Sistema de Vendas" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="systemDescription">Descrição</label>
+                        <textarea id="systemDescription" class="form-control" rows="3" placeholder="Descreva a função deste sistema..."></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="systemLink">URL de Acesso *</label>
+                        <input type="url" id="systemLink" class="form-control" placeholder="https://exemplo.com/sistema" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="systemCategory">Categoria</label>
+                        <input type="text" id="systemCategory" class="form-control" placeholder="Ex: Financeiro, Vendas, RH">
+                    </div>
+                    <input type="hidden" id="systemId" value="">
+                    
+                    <div class="actions">
+                        <button type="button" id="cancelBtn" class="btn btn-danger" style="display: none;">Cancelar</button>
+                        <button type="submit" id="submitBtn" class="btn btn-primary btn-block">Adicionar Sistema</button>
+                    </div>
+                </form>
             </div>
-        </footer>
+        </div>
 
         <!-- Modal para confirmação de importação -->
         <div class="modal" id="importModal">
             <div class="modal-content">
-                <button class="modal-close" id="closeImportModal">&times;</button>
-                <h2 class="card-title"><i class="fas fa-file-import"></i> Confirmar Importação</h2>
+                <div class="modal-header">
+                    <h2><i class="fas fa-file-import"></i> Confirmar Importação</h2>
+                    <button class="modal-close" id="closeImportModal">&times;</button>
+                </div>
                 <p id="importSummary">Carregando informações do backup...</p>
                 <div class="form-group">
                     <label>
@@ -1097,8 +1317,10 @@
         <!-- Modal para confirmação de limpeza -->
         <div class="modal" id="clearModal">
             <div class="modal-content">
-                <button class="modal-close" id="closeClearModal">&times;</button>
-                <h2 class="card-title"><i class="fas fa-exclamation-triangle"></i> Confirmar Limpeza</h2>
+                <div class="modal-header">
+                    <h2><i class="fas fa-exclamation-triangle"></i> Confirmar Limpeza</h2>
+                    <button class="modal-close" id="closeClearModal">&times;</button>
+                </div>
                 <p>Tem certeza que deseja excluir todos os sistemas? Esta ação não pode ser desfeita.</p>
                 <div class="form-group">
                     <label>
@@ -1187,7 +1409,7 @@
             const backupStoreName = 'backupInfo';
             
             // Open or create the database
-            const request = indexedDB.open(dbName, 3); // Version 3 for user store
+            const request = indexedDB.open(dbName, 3);
             
             request.onerror = function(event) {
                 console.error("Erro ao abrir o banco de dados:", event.target.error);
@@ -1308,6 +1530,27 @@
             logoutBtn.addEventListener('click', function() {
                 logoutUser();
             });
+            
+            // Settings button
+            const settingsBtn = document.getElementById('settingsBtn');
+            const closeSettingsBtn = document.getElementById('closeSettingsBtn');
+            const settingsPanel = document.getElementById('settingsPanel');
+            const settingsOverlay = document.getElementById('settingsOverlay');
+            
+            settingsBtn.addEventListener('click', function() {
+                settingsPanel.classList.add('active');
+                settingsOverlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+            
+            closeSettingsBtn.addEventListener('click', closeSettings);
+            settingsOverlay.addEventListener('click', closeSettings);
+            
+            function closeSettings() {
+                settingsPanel.classList.remove('active');
+                settingsOverlay.classList.remove('active');
+                document.body.style.overflow = '';
+            }
             
             // Function to check login status
             function checkLoginStatus() {
@@ -1476,12 +1719,31 @@
                 }
             }
             
-            // System form submission
+            // System Modal functionality
+            const addSystemBtn = document.getElementById('addSystemBtn');
+            const systemModal = document.getElementById('systemModal');
+            const closeSystemModal = document.getElementById('closeSystemModal');
+            const modalTitle = document.getElementById('modalTitle');
             const systemForm = document.getElementById('systemForm');
             const submitBtn = document.getElementById('submitBtn');
             const cancelBtn = document.getElementById('cancelBtn');
             let editingId = null;
             
+            // Open modal to add system
+            addSystemBtn.addEventListener('click', function() {
+                resetSystemForm();
+                modalTitle.textContent = 'Adicionar Sistema';
+                submitBtn.textContent = 'Adicionar Sistema';
+                cancelBtn.style.display = 'none';
+                systemModal.classList.add('show');
+            });
+            
+            // Close modal
+            closeSystemModal.addEventListener('click', function() {
+                systemModal.classList.remove('show');
+            });
+            
+            // System form submission
             systemForm.addEventListener('submit', function(e) {
                 e.preventDefault();
                 
@@ -1502,11 +1764,15 @@
                     // Add new system
                     addSystem(system);
                 }
+                
+                // Close modal
+                systemModal.classList.remove('show');
             });
             
             // Cancel edit
             cancelBtn.addEventListener('click', function() {
-                resetForm();
+                resetSystemForm();
+                systemModal.classList.remove('show');
             });
             
             // Search functionality
@@ -1563,7 +1829,7 @@
                     showNotification("Sistema adicionado com sucesso!", "success");
                     
                     // Reset form
-                    resetForm();
+                    resetSystemForm();
                     
                     // Reload systems
                     loadSystems();
@@ -1603,7 +1869,7 @@
                         showNotification("Sistema atualizado com sucesso!", "success");
                         
                         // Reset form
-                        resetForm();
+                        resetSystemForm();
                         
                         // Reload systems
                         loadSystems();
@@ -1678,7 +1944,7 @@
                         <div class="empty-state">
                             <i class="fas fa-cloud-download-alt"></i>
                             <h3>Nenhum sistema cadastrado</h3>
-                            <p>Adicione seu primeiro sistema usando o formulário ao lado.</p>
+                            <p>Adicione seu primeiro sistema clicando no botão acima.</p>
                         </div>
                     `;
                     return;
@@ -1839,18 +2105,19 @@
                     document.getElementById('systemCategory').value = system.category || '';
                     document.getElementById('systemId').value = system.id;
                     
-                    // Change button text and show cancel button
+                    // Change modal title and button text
+                    modalTitle.textContent = 'Editar Sistema';
                     submitBtn.textContent = 'Atualizar Sistema';
                     cancelBtn.style.display = 'inline-flex';
                     editingId = system.id;
                     
-                    // Scroll to form
-                    document.getElementById('systemName').scrollIntoView({ behavior: 'smooth' });
+                    // Open modal
+                    systemModal.classList.add('show');
                 };
             }
             
             // Function to reset form
-            function resetForm() {
+            function resetSystemForm() {
                 systemForm.reset();
                 document.getElementById('systemId').value = '';
                 submitBtn.textContent = 'Adicionar Sistema';
@@ -1921,6 +2188,9 @@
                     updateBackupInfo();
                     
                     showNotification(`Backup exportado com sucesso! ${systems.length} sistemas salvos.`, "success");
+                    
+                    // Close settings panel
+                    closeSettings();
                 };
                 
                 request.onerror = function(event) {
@@ -1980,6 +2250,9 @@
                     const replaceData = document.getElementById('replaceData').checked;
                     importDataFromFile(importData.data, replaceData);
                     importModal.classList.remove('show');
+                    
+                    // Close settings panel
+                    closeSettings();
                 };
             }
             
@@ -2101,6 +2374,9 @@
                 URL.revokeObjectURL(url);
                 
                 showNotification("Template baixado com sucesso!", "info");
+                
+                // Close settings panel
+                closeSettings();
             }
             
             // Function to show clear modal
@@ -2121,8 +2397,9 @@
                     console.log("Todos os dados foram limpos");
                     showNotification("Todos os dados foram removidos com sucesso!", "success");
                     
-                    // Close modal
+                    // Close modals
                     clearModal.classList.remove('show');
+                    closeSettings();
                     confirmDeleteCheckbox.checked = false;
                     confirmClearBtn.disabled = true;
                     
